@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prompt&display=swap" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="nsu2.png">
+
+  <title>NSU-Software Requirements</title>
+  <style>
+    /* Reset default styles */
+    body, h1, h2, ul, li {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Page layout */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #F9FAFC;
+    }
+
+    header {
+      background-color: #1A3C7F;
+      color: #FFF;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center; /* Align items horizontally */
+    }
+
+    header img {
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    nav {
+      background-color: #FFF;
+      padding: 10px 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    nav ul {
+      list-style-type: none;
+      text-align: center;
+    }
+
+    nav ul li {
+      display: inline;
+      margin-right: 10px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #1A3C7F;
+      padding: 5px 10px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      background-color: #E8EAF6;
+    }
+
+    section {
+      background-color: #FFF;
+      padding: 20px;
+      margin-left: 20px;
+      margin-right: 20px;
+      margin-bottom: 20px;
+      margin-top: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      cursor: pointer; /* Add cursor pointer to indicate interactivity */
+      overflow: hidden; /* Hide overflowing content */
+      transition: box-shadow 0.3s ease;
+    }
+
+    section.active {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    section h2 {
+      color: #1A3C7F;
+      margin-bottom: 10px;
+    }
+
+    .section-content {
+      margin: 20px;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+    }
+
+    .section-content.active {
+      max-height: 1000px; /* Adjust the max-height value as needed */
+      opacity: 1;
+      transition-delay: 0.2s; /* Add a delay to make the transition smoother */
+    }
+
+    footer {
+      background-color: #1A3C7F;
+      color: #FFF;
+      padding: 10px;
+      text-align: center;
+    }
+    
+    #userimage {
+      height: 200px;
+      width: 150px;
+    }
+    
+    p {
+    margin-bottom: 10px;
+  }
+  
+    li {
+      margin-bottom: 10px;
+    }
+   
+     
+      
+      #semester {
+          
+          padding: 10px;
+          margin: 10px;
+          background-color: white;
+          border-radius: 10px;
+          color: black;
+          
+      }
+      
+      #seminfo {
+          
+          padding: 10px;
+          margin: 10px;
+          background-color: white;
+          border-radius: 10px;
+          color: black;
+          
+      }
+      
+       #general {
+          padding: 20px;
+          margin: 20px;
+          background-color: #1A3C7F;
+          color: white;
+          border-radius: 10px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+          height: auto;
+      }
+      
+      #seminfo h4 {
+          padding-left: 20px;
+      }
+      
+      #semester h4 {
+          padding-left: 20px;
+      }
+      
+      #semester p {
+          padding-left: 30px;
+      }
+      
+      #seminfo p {
+          padding-left: 30px;
+      }
+      
+      .headfixclass {
+          background-color: aliceblue;
+          border-radius: 10px;
+          padding-bottom: 20px;
+          /*margin-bottom: 20px;*/
+          padding-top: 20px;
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+      
+      #headfix h2 {
+          text-align: center;
+          color: #371E87;
+          padding-bottom: 20px;
+      }
+      
+      #headfixsum {
+          color: black;
+          font-family: 'Prompt', sans-serif;
+          margin-left: 20px;
+          margin-right: 20px;
+          padding: 20px;
+          background-color: white;
+          text-align: center;
+          font-size: 15pt;
+      }
+      
+      #headfixbuttonpanel {
+          display: flex;
+          justify-content: center;
+          padding: 10px;
+          margin: 10px;
+      }
+      
+      .hfbpb {
+      background-color: #1A3C7F; /* Default background color */
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 20px;
+      margin: 4px 10px;
+      transition-duration: 0.4s;
+      cursor: pointer;
+          border-radius: 10px;
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+          font-family: 'Bebas Neue', sans-serif;
+          border-radius: 0;
+      }
+      
+      .hfbpb:hover {
+          background-color: white; /* #008CBA; /* Background color on hover */
+          border: 5px solid #1A3C7F;
+          color: #1A3C7F;
+          box-shadow: 0 4px 8px rgba(36, 88, 255, 0.66);
+          border-radius: 0;
+      }
+      
+      #logoutbutton {
+          background-color: red;
+          border: none;
+          color: white;
+          
+      }
+      
+      #logoutbutton:hover {
+          background-color: white;
+          border: 5px solid red;
+          color: red;
+          box-shadow: 0 4px 8px rgba(255, 0, 0, 0.66);
+      }
+      
+      
+      /* faculty start here */
+      /*
+      #maindiv {
+          padding: 20px;
+      }
+      
+      #maindivheading {
+          padding: 20px;
+      }
+      
+      #maindivheading h3 {
+          text-align: center;
+      }
+      */
+      
+      #secondheader {
+          background-color: #1A3C7F;
+          color: white;
+          text-align: center;
+          padding-top: 20px;
+          padding-bottom: 20px;
+          
+      }
+      
+      /*FAC start here*/
+      
+      .generalinfoclass {
+          background-color: #1A3C7F;
+          color: white;
+          padding: 40px;
+      }
+      
+      #credential {
+          text-align: center;
+          padding: 20px;
+          background-color: lightslategrey;
+          color: white;
+      }
+      
+      /*softlist start here*/
+      
+      
+      
+      
+      #softslist {
+          padding: 30px;
+      }
+      
+      table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #808080;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+      
+    
+  </style>
+  <script>
+    // JavaScript function to toggle section content visibility and focus
+    function toggleSection(sectionId) {
+      var section = document.getElementById(sectionId);
+      section.classList.toggle("active");
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <img src="nsu2.png" alt="Logo">
+    <h1>North South University</h1>
+  </header>
+    
+    
+    <div id="secondheader" class="secondheaderclass">
+    
+        <h2>Faculty Orders-Software(s)</h2>
+        
+    </div>
+    
+
+  <!--
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Courses</a></li>
+      <li><a href="panel1.html">Panel 1</a></li> <!-- Link to "panel1.html" --
+    </ul>
+  </nav>
+  -->
+  <div id="headfix" class="headfixclass">
+      
+     
+      
+      <div id="headfixsum" class="headfixsumclass">
+          
+          <p>Required software for EEE studetns are given below<br>
+          Note: The recommended software are thought to be obtained by each student and are the ideals<br>
+          In some cases alternatives can be used</p>
+      
+      </div>
+      
+      <div id="headfixbuttonpanel" class="headfixbuttonpanelclass">
+          
+          <a href="dashboard.html">
+          <button class="hfbpb">Dashboard</button>
+          </a>
+          
+          <a href="academics.html">
+          <button class="hfbpb">Academics</button>
+          </a>
+          
+          <a href="fac.html">
+              <button class="hfbpb">F A C</button>
+          </a>
+          
+          <a href="account.html">
+              <button class="hfbpb">Account</button>
+          </a>
+          
+          <a href="index.html">
+              <button class="hfbpb" id="logoutbutton">Logout</button>
+          </a>
+      
+      </div>
+    
+    </div>
+    
+    
+    
+    <div id="maindiv" class="maindivclass">
+        
+        <div id="maindivheading" class="maindivheadingclass">
+            
+            <!--<h3>All information will be available soon</h3>-->
+            
+            
+            <div id="generalinfo" class="generalinfoclass">
+            
+                <h3>Students can use FAC to obtain these items</h3>
+                
+                <p>FAC will provide partial to fully funded purchase of these products. TC apply</p>
+                
+                <p>Visit FAC page and check out products to make a purchase via <a style="color: white", href="fac.html">FAC</a>
+                </p>
+            </div>
+            
+            <div id="credential" class="credentialclass">
+            
+                <h2>Software List</h2>
+            </div>
+            
+            <div id="softslist" class="softslistclass">
+                
+                
+                
+            
+                <table>
+        <thead>
+            <tr>
+                <th>Semester</th>
+                <th>Module</th>
+                <th>Software</th>
+                <th>Type</th>
+                <th>License</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>AutoCAD, MatLab, ETAP</td>
+                <td>Engineering Software</td>
+                <td>Student License</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>AutoCAD, MatLab, Solidworks</td>
+                <td>Engineering Software</td>
+                <td>Student License</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>3</td>
+                <td>AutoCAD, MatLab, ETAP</td>
+                <td>Engineering Software</td>
+                <td>Student License</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>4</td>
+                <td>AutoCAD, ETAP, MatLab, Simulink, Rust</td>
+                <td>Engineering Software</td>
+                <td>Student License</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>5</td>
+                <td>AutoCAD, ETAP, MatLab, Simulink, Rust</td>
+                <td>Engineering Software</td>
+                <td>Student License</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>6</td>
+                <td>AutoCAD, ETAP, MatLab, Simulink, Rust</td>
+                <td>Engineering Software</td>
+                <td>Student License</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>1</td>
+                <td>AutoCAD, ETAP, MatLab, Simulink, Rust</td>
+                <td>Engineering Software</td>
+                <td>Student License</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>2</td>
+                <td>AutoCAD, ETAP, MatLab, Simulink, Rust</td>
+                <td>Engineering Software</td>
+                <td>Student License</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>3</td>
+                <td>AutoCAD, ETAP, MatLab, Simulink, Rust</td>
+                <td>Engineering Software</td>
+                <td>Student License</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>4</td>
+                <td>AutoCAD, ETAP, MatLab, Solidworks</td>
+                <td>Engineering Software</td>
+                <td>Student License</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>5</td>
+                <td>AutoCAD, ETAP, MatLab, Solidworks</td>
+                <td>Engineering Software</td>
+                <td>Student License</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>6</td>
+                <td>AutoCAD, ETAP, MatLab, Solidworks</td>
+                <td>Engineering Software</td>
+                <td>Student License</td>
+            </tr>
+        </tbody>
+    </table>
+                
+                
+                
+                
+            </div>
+        
+        </div>
+    
+    </div>
+    
+    <script>
+    function createPid(url) {
+      window.location.href = url;
+    }
+  </script>
+    
+    <div style="margin: 20px; padding: 20px;">
+    
+        <button style="margin-left: 40%; margin-right: 40%; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px;background-color: forestgreen; color: white; border-style: none; box-shadow: 4px 4px 8px rgba(0,0,0,0.2);" onclick="createPid('paymentid.html')">Create Payment ID</button>
+        
+    </div>
+    
+    
+    <div id="productshelf" class="productshelfclass">
+    
+        
+    </div>
+  <!-- Add more sections as needed -->
+  <!--  
+  <div id="general">
+    
+      <h3>Department of Electrical and Electronics Engineering </h3>
+      
+      <div id="semester">
+          
+          <h4>1st Semester</h4>
+          
+          <p>All info will be vailable soon</p>
+      
+      </div>
+      
+      <div id="seminfo">
+      
+          <h4>Semester Information</h4>
+          
+          <p>All info will be avalable soon</p>
+      </div>
+    
+    </div>
+
+  -->
+
+  <footer>
+    <p>&copy; 2023 NSU. All rights reserved.</p>
+  </footer>
+</body>
+</html>

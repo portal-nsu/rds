@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prompt&display=swap" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="nsu2.png">
+
+  <title>NSU-Generate FAC Payment ID</title>
+  <style>
+    /* Reset default styles */
+    body, h1, h2, ul, li {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Page layout */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #F9FAFC;
+    }
+
+    header {
+      background-color: #1A3C7F;
+      color: #FFF;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center; /* Align items horizontally */
+    }
+
+    header img {
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    nav {
+      background-color: #FFF;
+      padding: 10px 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    nav ul {
+      list-style-type: none;
+      text-align: center;
+    }
+
+    nav ul li {
+      display: inline;
+      margin-right: 10px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #1A3C7F;
+      padding: 5px 10px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      background-color: #E8EAF6;
+    }
+
+    section {
+      background-color: #FFF;
+      padding: 20px;
+      margin-left: 20px;
+      margin-right: 20px;
+      margin-bottom: 20px;
+      margin-top: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      cursor: pointer; /* Add cursor pointer to indicate interactivity */
+      overflow: hidden; /* Hide overflowing content */
+      transition: box-shadow 0.3s ease;
+    }
+
+    section.active {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    section h2 {
+      color: #1A3C7F;
+      margin-bottom: 10px;
+    }
+
+    .section-content {
+      margin: 20px;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+    }
+
+    .section-content.active {
+      max-height: 1000px; /* Adjust the max-height value as needed */
+      opacity: 1;
+      transition-delay: 0.2s; /* Add a delay to make the transition smoother */
+    }
+
+    footer {
+      background-color: #1A3C7F;
+      color: #FFF;
+      padding: 10px;
+      text-align: center;
+    }
+    
+    #userimage {
+      height: 200px;
+      width: 150px;
+    }
+    
+    p {
+    margin-bottom: 10px;
+  }
+  
+    li {
+      margin-bottom: 10px;
+    }
+   
+     
+      
+      #semester {
+          
+          padding: 10px;
+          margin: 10px;
+          background-color: white;
+          border-radius: 10px;
+          color: black;
+          
+      }
+      
+      #seminfo {
+          
+          padding: 10px;
+          margin: 10px;
+          background-color: white;
+          border-radius: 10px;
+          color: black;
+          
+      }
+      
+       #general {
+          padding: 20px;
+          margin: 20px;
+          background-color: #1A3C7F;
+          color: white;
+          border-radius: 10px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+          height: auto;
+      }
+      
+      #seminfo h4 {
+          padding-left: 20px;
+      }
+      
+      #semester h4 {
+          padding-left: 20px;
+      }
+      
+      #semester p {
+          padding-left: 30px;
+      }
+      
+      #seminfo p {
+          padding-left: 30px;
+      }
+      
+      .headfixclass {
+          background-color: aliceblue;
+          border-radius: 10px;
+          padding-bottom: 20px;
+          margin-bottom: 20px;
+          padding-top: 20px;
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+      
+      #headfix h2 {
+          text-align: center;
+          color: #371E87;
+          padding-bottom: 20px;
+      }
+      
+      #headfixsum {
+          color: black;
+          font-family: 'Prompt', sans-serif;
+          margin-left: 20px;
+          margin-right: 20px;
+          padding: 20px;
+          background-color: white;
+          text-align: center;
+          font-size: 15pt;
+      }
+      
+      #headfixbuttonpanel {
+          display: flex;
+          justify-content: center;
+          padding: 10px;
+          margin: 10px;
+      }
+      
+      .hfbpb {
+      background-color: #1A3C7F; /* Default background color */
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 20px;
+      margin: 4px 10px;
+      transition-duration: 0.4s;
+      cursor: pointer;
+          border-radius: 10px;
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+          font-family: 'Bebas Neue', sans-serif;
+          border-radius: 0;
+      }
+      
+      .hfbpb:hover {
+          background-color: white; /* #008CBA; /* Background color on hover */
+          border: 5px solid #1A3C7F;
+          color: #1A3C7F;
+          box-shadow: 0 4px 8px rgba(36, 88, 255, 0.66);
+          border-radius: 0;
+      }
+      
+      #logoutbutton {
+          background-color: red;
+          border: none;
+          color: white;
+          
+      }
+      
+      #logoutbutton:hover {
+          background-color: white;
+          border: 5px solid red;
+          color: red;
+          box-shadow: 0 4px 8px rgba(255, 0, 0, 0.66);
+      }
+      
+      
+      /* faculty start here */
+      
+      #maindiv {
+          padding: 20px;
+      }
+      
+      #maindivheading {
+          padding: 20px;
+      }
+      
+      #maindivheading h3 {
+          text-align: center;
+      }
+      
+      #secondheader {
+          background-color: #1A3C7F;
+          color: white;
+          text-align: center;
+          padding-top: 20px;
+          padding-bottom: 20px;
+          
+      }
+      
+      #maindivfirst {
+          padding: 20px;
+          
+      }
+      
+      .maindivfirstsectionclass {
+          font-family: 'Roboto', sans-serif;
+          font-weight: 600;
+          font-size: 20px;
+          text-align: center;
+          background-color: #1A3C7F;
+          color: white;
+          transition: transform .6s ease-out, background-color .6s ease-out, color .6s ease-out, box-shadow .6s ease-out, font-size .6s ease-out;
+      }
+      
+      .maindivfirstsectionclass:hover {
+          transform: scale(1.01);
+          background-color: white;
+          color: #1A3C7F;
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+          font-size: 22px;
+          transition: transform .6s ease-out, background-color .6s ease-out, color .6s ease-out, box-shadow .6s ease-out, font-size .6s ease-out;
+      }
+      
+      
+      #subdiv1 {
+          margin-left: 20px;
+          margin-right: 20px;
+          padding-left: 10px;
+          padding-right: 10px;
+          margin-top: 30px;
+          margin-bottom: 30px;
+          padding-top: 10px;
+          padding-bottom: 10px;
+      }
+      
+      #subdiv2 {
+        
+          background-color: #1A3C7F;
+          margin-left: 30px;
+          margin-right: 30px;
+          padding-left: 20px;
+          padding-right: 20px;
+          margin-top: 20px;
+          margin-bottom: 20px;
+          padding-top: 10px;
+          padding-bottom: 10px;
+          color: white;
+      }
+      
+      .venueclass {
+          color: #1A3C7F;
+      }
+      
+      
+      
+      
+      
+      
+      
+      body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .menu h1 {
+            font-size: 24px;
+        }
+
+        .menu ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .menu li {
+            margin-bottom: 20px;
+        }
+
+        .menu li strong {
+            font-size: 18px;
+        }
+
+        .menu .custom-checkbox {
+            display: flex;
+            align-items: center;
+        }
+
+        .menu .custom-checkbox input[type="checkbox"] {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .menu .custom-checkbox label {
+            cursor: pointer;
+        }
+
+        .menu li input[type="number"] {
+            width: 50px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .cart {
+            flex: 1;
+            padding: 20px;
+            background-color: #f8f8f8;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .cart h1 {
+            font-size: 24px;
+        }
+
+        .cart ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .cart li {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .cart p {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .custom-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .custom-button:hover {
+            background-color: #0056b3;
+        }
+
+        #paymentId {
+            font-size: 18px;
+            font-weight: bold;
+        }
+      
+      
+      
+    
+  </style>
+  <script>
+    // JavaScript function to toggle section content visibility and focus
+    function toggleSection(sectionId) {
+      var section = document.getElementById(sectionId);
+      section.classList.toggle("active");
+    }
+      
+      
+    
+      
+      function maindivfirstsectionfirstLink() {
+            window.location.href = "softlist.html";
+        }
+      
+  </script>
+</head>
+<body>
+  <header>
+    <img src="nsu2.png" alt="Logo">
+    <h1>North South University</h1>
+  </header>
+    
+    
+    <div id="secondheader" class="secondheaderclass">
+    
+        <h2>Automated Payment Management System</h2>
+        
+    </div>
+    
+
+  <!--
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Courses</a></li>
+      <li><a href="panel1.html">Panel 1</a></li> <!-- Link to "panel1.html" --
+    </ul>
+  </nav>
+  -->
+  <div id="headfix" class="headfixclass">
+      
+     
+      
+      
+      <!--
+      <div id="headfixsum" class="headfixsumclass">
+          
+          <p>Welcome to the school of physical engineering of NSU.<br>
+          Department of Electrical and Electronics Engineering of NSU is ranked #301-400 wordwide<br>
+          We are glad we have such critical thinker like you onboard.</p>
+      
+      </div>
+      -->
+      
+      <div id="headfixbuttonpanel" class="headfixbuttonpanelclass">
+          
+          <a href="dashboard.html">
+          <button class="hfbpb">Dashboard</button>
+          </a>
+          
+          <a href="academics.html">
+          <button class="hfbpb">Academics</button>
+          </a>
+          
+          <a href="fac.html">
+              <button class="hfbpb">F A C</button>
+          </a>
+          
+          <a href="account.html">
+              <button class="hfbpb">Account</button>
+          </a>
+          
+          <a href="index.html">
+              <button class="hfbpb" id="logoutbutton">Logout</button>
+          </a>
+      
+      </div>
+    
+    </div>
+    
+    
+    
+    <div id="maindiv" class="maindivclass">
+        
+        <div id="maindivheading" class="maindivheadingclass">
+            
+            <h3>Generate Payment ID for FAC</h3>
+            
+            <h4 style="text-align: center;">Semester 3 Module 1 - Semester 3 Module 3</h4>
+            
+            
+            
+            
+        
+        </div>
+        
+        <div id="subdiv" class="subdivclass">
+            
+    <div class="container">
+        <!-- Menu on the left -->
+        <div class="menu">
+            <h1>Software List</h1>
+            <ul id="menu">
+                <li>
+                    <label class="custom-checkbox">
+                        <input type="checkbox" class="item-checkbox" data-price="29.00" data-name="MATLab">
+                        <span class="checkmark"></span>
+                        <strong>MATLab</strong> - $29.00
+                        <br> 
+                    </label>
+                    <input type="number" class="quantity" value="3" min="3">
+                </li>
+                <li>
+                    <label class="custom-checkbox">
+                        <input type="checkbox" class="item-checkbox" data-price="9.00" data-name="ETAP">
+                        <span class="checkmark"></span>
+                        <strong>ETAP</strong> - $9.00
+                        <br> 
+                    </label>
+                    <input type="number" class="quantity" value="3" min="3">
+                </li>
+                 <li>
+                    <label class="custom-checkbox">
+                        <input type="checkbox" class="item-checkbox" data-price="80.00" data-name="AutoCAD">
+                        <span class="checkmark"></span>
+                        <strong>AutoCAD</strong> - $80.00
+                        <br> 
+                    </label>
+                    <input type="number" class="quantity" value="3" min="3">
+                </li>
+                 <li>
+                    <label class="custom-checkbox">
+                        <input type="checkbox" class="item-checkbox" data-price="30.00" data-name="Solidworks">
+                        <span class="checkmark"></span>
+                        <strong>Solidworks</strong> - $30.00
+                        <br> 
+                    </label>
+                    <input type="number" class="quantity" value="3" min="3">
+                </li>
+                 <li>
+                    <label class="custom-checkbox">
+                        <input type="checkbox" class="item-checkbox" data-price="25.00" data-name="Simulink">
+                        <span class="checkmark"></span>
+                        <strong>Simulink</strong> - $25.00
+                        <br> 
+                    </label>
+                    <input type="number" class="quantity" value="3" min="3">
+                </li>
+                 <li>
+                    <label class="custom-checkbox">
+                        <input type="checkbox" class="item-checkbox" data-price="18.00" data-name="RUST">
+                        <span class="checkmark"></span>
+                        <strong>RUST</strong> - $18.00
+                        <br> 
+                    </label>
+                    <input type="number" class="quantity" value="3" min="3">
+                </li>
+                <li>
+                    <label class="custom-checkbox">
+                        <input type="checkbox" class="item-checkbox" data-price="100.00" data-name="RUST">
+                        <span class="checkmark"></span>
+                        <strong>AutoDesk</strong> - $100.00
+                        <br> 
+                    </label>
+                    <input type="number" class="quantity" value="3" min="3">
+                </li>
+                <!-- Add other menu items here -->
+            </ul>
+            <button id="calculateTotalButton" class="custom-button">Calculate Total</button>
+        </div>
+        
+        <!-- Cart on the right -->
+        <div class="cart">
+            <h1>Cart</h1>
+            <ul id="cart">
+                <!-- Cart items will be displayed here -->
+            </ul>
+            <p>Total Price: $<span id="totalPrice">0.00</span></p>
+            <button id="confirmOrderButton" class="custom-button">Generate Payment ID</button>
+            <p>Payment ID: <span id="paymentId"></span></p>
+        </div>
+        
+        
+    </div>
+            
+        <div class="container">
+            
+            <div class="cart">
+            
+                <h2>Pending Payment IDs</h2>
+                
+                <div class="container">
+                
+                    N/A
+                    
+                    
+                </div>
+            
+            </div>
+            
+        </div>
+
+    <script>
+        const cart = [];
+
+        // Function to calculate the total price
+        function calculateTotalPrice() {
+            let totalPrice = 0;
+
+            // Clear the cart
+            document.getElementById("cart").innerHTML = "";
+
+            // Iterate through menu items
+            document.querySelectorAll(".item-checkbox").forEach(checkbox => {
+                if (checkbox.checked) {
+                    const itemName = checkbox.getAttribute("data-name");
+                    const itemPrice = parseFloat(checkbox.getAttribute("data-price"));
+                    const quantityInput = checkbox.parentElement.parentElement.querySelector(".quantity");
+                    const quantity = parseInt(quantityInput.value);
+                    
+                    if (quantity > 0) {
+                        const cartItem = document.createElement("li");
+                        cartItem.textContent = `${itemName} x ${quantity} - $${(itemPrice * quantity).toFixed(2)}`;
+                        cart.push({ name: itemName, price: itemPrice, quantity });
+                        document.getElementById("cart").appendChild(cartItem);
+                    }
+
+                    // Calculate the total price
+                    totalPrice += itemPrice * quantity;
+                }
+            });
+
+            // Display the total price
+            document.getElementById("totalPrice").textContent = totalPrice.toFixed(2);
+        }
+
+        // Function to generate a random payment ID starting with "12660"
+        function generatePaymentId() {
+            const paymentId = "12660" + Math.floor(Math.random() * 1000000);
+            document.getElementById("paymentId").textContent = paymentId;
+        }
+
+        // Event listener for the "Calculate Total" button
+        document.getElementById("calculateTotalButton").addEventListener("click", calculateTotalPrice);
+
+        // Event listener for the "Confirm Order" button
+        document.getElementById("confirmOrderButton").addEventListener("click", () => {
+            calculateTotalPrice();
+            generatePaymentId();
+        });
+    </script>
+
+        </div>
+    </div>
+        
+        
+  <!-- Add more sections as needed -->
+    
+  
+
+  <footer>
+    <p>&copy; 2023 NSU. All rights reserved.</p>
+  </footer>
+</body>
+</html>

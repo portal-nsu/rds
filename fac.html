@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prompt&display=swap" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="nsu2.png">
+
+  <title>NSU-F.A.C.</title>
+  <style>
+    /* Reset default styles */
+    body, h1, h2, ul, li {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Page layout */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #F9FAFC;
+    }
+
+    header {
+      background-color: #1A3C7F;
+      color: #FFF;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center; /* Align items horizontally */
+    }
+
+    header img {
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    nav {
+      background-color: #FFF;
+      padding: 10px 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    nav ul {
+      list-style-type: none;
+      text-align: center;
+    }
+
+    nav ul li {
+      display: inline;
+      margin-right: 10px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #1A3C7F;
+      padding: 5px 10px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      background-color: #E8EAF6;
+    }
+
+    section {
+      background-color: #FFF;
+      padding: 20px;
+      margin-left: 20px;
+      margin-right: 20px;
+      margin-bottom: 20px;
+      margin-top: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      cursor: pointer; /* Add cursor pointer to indicate interactivity */
+      overflow: hidden; /* Hide overflowing content */
+      transition: box-shadow 0.3s ease;
+    }
+
+    section.active {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    section h2 {
+      color: #1A3C7F;
+      margin-bottom: 10px;
+    }
+
+    .section-content {
+      margin: 20px;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+    }
+
+    .section-content.active {
+      max-height: 1000px; /* Adjust the max-height value as needed */
+      opacity: 1;
+      transition-delay: 0.2s; /* Add a delay to make the transition smoother */
+    }
+
+    footer {
+      background-color: #1A3C7F;
+      color: #FFF;
+      padding: 10px;
+      text-align: center;
+    }
+    
+    #userimage {
+      height: 200px;
+      width: 150px;
+    }
+    
+    p {
+    margin-bottom: 10px;
+  }
+  
+    li {
+      margin-bottom: 10px;
+    }
+   
+     
+      
+      #semester {
+          
+          padding: 10px;
+          margin: 10px;
+          background-color: white;
+          border-radius: 10px;
+          color: black;
+          border-radius: 0;
+          
+      }
+      
+      #seminfo {
+          
+          padding: 10px;
+          margin: 10px;
+          background-color: white;
+          border-radius: 10px;
+          color: black;
+          border-radius: 0;
+          
+      }
+      
+       #general {
+          padding: 20px;
+          margin: 20px;
+          background-color: #1A3C7F;
+          color: white;
+          border-radius: 10px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+          height: auto;
+           border-radius: 0;
+      }
+      
+      #seminfo h4 {
+          padding-left: 20px;
+      }
+      
+      #semester h4 {
+          padding-left: 20px;
+      }
+      
+      #semester p {
+          padding-left: 30px;
+      }
+      
+      #seminfo p {
+          padding-left: 30px;
+      }
+      
+      .headfixclass {
+          background-color: aliceblue;
+          border-radius: 10px;
+          padding-bottom: 20px;
+          /*margin-bottom: 20px;*/
+          padding-top: 20px;
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+      
+      #headfix h2 {
+          text-align: center;
+          color: #371E87;
+          padding-bottom: 20px;
+      }
+      
+      #headfixsum {
+          color: black;
+          font-family: 'Prompt', sans-serif;
+          margin-left: 20px;
+          margin-right: 20px;
+          padding: 20px;
+          background-color: white;
+          text-align: center;
+          font-size: 15pt;
+      }
+      
+      #headfixbuttonpanel {
+          display: flex;
+          justify-content: center;
+          padding: 10px;
+          margin: 10px;
+      }
+      
+      .hfbpb {
+      background-color: #1A3C7F; /* Default background color */
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 20px;
+      margin: 4px 10px;
+      transition-duration: 0.4s;
+      cursor: pointer;
+          border-radius: 10px;
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+          font-family: 'Bebas Neue', sans-serif;
+          border-radius: 0;
+      }
+      
+      .hfbpb:hover {
+          background-color: white; /* #008CBA; /* Background color on hover */
+          border: 5px solid #1A3C7F;
+          color: #1A3C7F;
+          box-shadow: 0 4px 8px rgba(36, 88, 255, 0.66);
+          border-radius: 0;
+      }
+      
+      #logoutbutton {
+          background-color: red;
+          border: none;
+          color: white;
+          
+      }
+      
+      #logoutbutton:hover {
+          background-color: white;
+          border: 5px solid red;
+          color: red;
+          box-shadow: 0 4px 8px rgba(255, 0, 0, 0.66);
+      }
+      
+      
+      /* faculty start here */
+      /*
+      #maindiv {
+          padding: 20px;
+      }
+      
+      #maindivheading {
+          padding: 20px;
+      }
+      
+      #maindivheading h3 {
+          text-align: center;
+      }
+      */
+      
+      #secondheader {
+          background-color: #1A3C7F;
+          color: white;
+          text-align: center;
+          padding-top: 20px;
+          padding-bottom: 20px;
+          
+      }
+      
+      /*FAC start here*/
+      
+      .generalinfoclass {
+          background-color: #1A3C7F;
+          color: white;
+          padding: 40px;
+      }
+      
+      #credential {
+          text-align: center;
+          padding: 20px;
+          background-color: lightslategrey;
+          color: white;
+      }
+      
+      /*Extra bar*/
+      
+       .category-list {
+      margin-bottom: 20px;
+    }
+
+    .category-title {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #fff;
+      margin-bottom: 10px;
+      cursor: pointer;
+      background-color: #1A3C7F;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .category-container {
+      display: none;
+    }
+
+    .product-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+      padding: 10px;
+      background-color: #fff;
+      box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+      margin-bottom: 10px;
+    }
+
+    .product-info {
+      flex-grow: 1;
+      margin-right: 10px;
+    }
+
+    .product-name {
+      font-weight: bold;
+      font-size: 1.2em;
+      color: #1A3C7F;
+    }
+
+    .product-price {
+      font-size: 1.2em;
+      color: #333;
+    }
+
+    .product-price::before {
+      content: "Regular Price: ";
+      font-weight: normal;
+      color: #777;
+    }
+
+    .product-discount {
+      font-size: 0.9em;
+      color: dodgerblue;
+      margin-top: 5px;
+    }
+
+    .product-price-after-discount {
+      font-size: 1.2em;
+      color: #4CAF50;
+      font-weight: bold;
+    }
+
+    .buy-now-button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .buy-now-button:hover {
+      background-color: deepskyblue;
+    }
+
+    .discount-graphic {
+      background-color: #e0e0e0;
+      height: 10px;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .discount-bar {
+      height: 100%;
+      background-color: #4CAF50;
+    }
+      
+      
+      
+      #productshelf {
+          padding: 40px;
+      }
+    
+      
+      #reqstat {
+          background-color: #1A3C7F;
+          border-radius: 10px;
+          box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+          margin-bottom: 20px;
+          margin-left: 60px;
+          margin-right: 60px;
+          color: white;
+          transition: background-color 0.6s ease-out, scale 0.6s ease-out, color 0.6s ease-out, box-shadow 0.6s ease-out;
+      }
+      
+      #reqstat:hover {
+          background-color: white;
+          color: #1A3C7F;
+          box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+          transform: scale(1.025);
+          transition: background-color 0.6s ease-out, scale 0.6s ease-out, color 0.6s ease-out, box-shadow 0.6s ease-out;
+      }
+      #reqstatheading {
+          padding: 20px;
+          
+          
+      }    
+      
+      
+       table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #808080;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+            color: #1A3C7F;
+        }
+      
+  </style>
+  <script>
+    // JavaScript function to toggle section content visibility and focus
+    function toggleSection(sectionId) {
+      var section = document.getElementById(sectionId);
+      section.classList.toggle("active");
+    }
+      
+      
+    function requestFunding() {
+        alert('We have placed your request, you will get update soon!');
+    }
+      
+      
+  </script>
+    
+    
+    <script>
+    function redirectToPage(url) {
+      window.location.href = url;
+    }
+  </script>
+    
+</head>
+<body>
+  <header>
+    <img src="nsu2.png" alt="Logo">
+    <h1>North South University</h1>
+  </header>
+    
+    
+    <div id="secondheader" class="secondheaderclass">
+    
+        <h2>Faculty Aided Checkout (FAC)</h2>
+        
+    </div>
+    
+
+  <!--
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Courses</a></li>
+      <li><a href="panel1.html">Panel 1</a></li> <!-- Link to "panel1.html" --
+    </ul>
+  </nav>
+  -->
+  <div id="headfix" class="headfixclass">
+      
+     
+      
+      <!--
+      <div id="headfixsum" class="headfixsumclass">
+          
+          <p>Welcome to the school of physical engineering of NSU.<br>
+          Department of Electrical and Electronics Engineering of NSU is ranked #301-400 wordwide<br>
+          We are glad we have such critical thinker like you onboard.</p>
+      
+      </div>
+      -->
+      
+      <div id="headfixbuttonpanel" class="headfixbuttonpanelclass">
+          
+          <a href="dashboard.html">
+          <button class="hfbpb">Dashboard</button>
+          </a>
+          
+          <a href="academics.html">
+          <button class="hfbpb">Academics</button>
+          </a>
+          
+          <a href="fac.html">
+              <button class="hfbpb">F A C</button>
+          </a>
+          
+          <a href="account.html">
+              <button class="hfbpb">Account</button>
+          </a>
+          
+          <a href="index.html">
+              <button class="hfbpb" id="logoutbutton">Logout</button>
+          </a>
+      
+      </div>
+    
+    </div>
+    
+    
+    
+    <div id="maindiv" class="maindivclass">
+        
+        <div id="maindivheading" class="maindivheadingclass">
+            
+            <!--<h3>All information will be available soon</h3>-->
+            
+            
+            <div id="generalinfo" class="generalinfoclass">
+            
+                <h3>What is Faculty Aided Checkout?</h3>
+                
+                <p>Faculty Aided Checkout or FAC is a unique facility introduced by North South University
+                for the first time in Bangladesh. In the Higher education field of Engineering and other Tech depended fields,
+                often students are required to purchase various tools, equipments, softwares and other accessories. Which
+                are often very expensive and burden on the student, also the process of purchasing such goods are not easy.
+                One have to go through difficult legal paperworks just to avail international cards.</p>
+                
+                <p>So, keeping all that in mind NSU have came forward to provide their students with easy checkout portal in which
+                    the student gets partial subsidies on the products, and if available by the vendor, also can get special benifits
+                    under student criteria.
+                </p>
+            </div>
+            
+            <div id="credential" class="credentialclass">
+            
+                <h2 style="padding: 10px;">FAC purchase request application</h2>
+                
+                <p>New Tenure system*:</p>
+                <p>For Freshman years (First 2 Semesters), it's recommended to apply for 3 months funding tenure.<br>
+                Any Student obtaining FULL FUNDING in his/hers Freshman years, will enjoy a 3 month long full funding</p>
+                <p>After Freshman years (From 3rd semester), the old 1 month tenure can be obtained</p>
+                <p></p>
+                
+                
+                
+                              
+                
+                
+                
+                
+                
+                
+                <table>
+       
+                    <thead>
+           
+                        <tr>
+               
+                            <th>Semester</th>
+                            <th>Module</th>
+                            <th>Preiode</th>
+                            <th>Application Status</th>
+                            <th>Deadline</th>
+               
+                            
+           
+                        </tr>
+        
+                    </thead>
+        
+                    <tbody>
+          
+                        <tr>
+               
+                            <td>1</td>
+                            <td>1</td>
+                            <td>July 2023</td>
+                            <td>Closed</td>
+                            <td>9 July 2023</td>
+          
+                        </tr>
+                        
+                        <tr>
+                        
+                            <td>1</td>
+                            <td>2-3</td>
+                            <td>August-September 2023</td>
+                            <td>Closed</td>
+                            <td>17 July 2023</td>
+                        </tr>
+                        
+                        <tr>
+                        
+                            <td>1</td>
+                            <td>4-6</td>
+                            <td>October-December 2023</td>
+                            <td>Closed</td>
+                            <td>4 October 2023</td>
+                        </tr>
+                        
+                        <tr>
+                        
+                            <td>2</td>
+                            <td>1-3</td>
+                            <td>January-March 2024</td>
+                            <td>Closed</td>
+                            <td>2 January 2023</td>
+                        </tr>
+                        
+                        <tr>
+                        
+                            <td>2</td>
+                            <td>4-6</td>
+                            <td>April-June 2024</td>
+                            <td>Closed</td>
+                            <td>30 March 2024</td>
+                        </tr>
+                        
+                        <tr>
+                        
+                            <td>3</td>
+                            <td>1-3</td>
+                            <td>July-September 2024</td>
+                            <td>Closed</td>
+                            <td>12 June 2024</td>
+                        </tr>
+                        
+                        <tr>
+                        
+                            <td>3</td>
+                            <td>4-6</td>
+                            <td>October-December 2024</td>
+                            <td>Open</td>
+                            <td>26 September 2024</td>
+                        </tr>
+
+            
+            <!--
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>AutoCAD, MatLab, Solidworks</td>
+                <th>Period</th>
+                <td>Engineering Software</td>
+                <td>Student License</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>3</td>
+                <td>AutoCAD, MatLab, ETAP</td>
+                <td>Engineering Software</td>
+                <td>Student License</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>4</td>
+                <td>AutoCAD, MatLab, Solidworks</td>
+                <td>Engineering Software</td>
+                <td>Student License</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>5</td>
+                <td>AutoCAD, ETAP, MatLab</td>
+                <td>Engineering Software</td>
+                <td>Student License</td>
+            </tr>
+
+-->
+       
+                    </tbody>
+   
+                </table>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            </div>
+        
+        </div>
+    
+    </div>
+    
+    
+    
+    
+    <!-- Products shelf START-->
+    
+    
+    
+    <div id="productshelf" class="productshelfclass">
+        
+        
+        
+        
+        <div class="category-list">
+    <div class="category-title" onclick="toggleCategory('foods')">Software(s)</div>
+    <div class="category-container" id="foods">
+      <div class="product-container">
+        <div class="product-info">
+          <div class="product-name">AutoCAD</div>
+          <div class="product-price">$245/m</div>
+          <div class="discount-graphic">
+            <div class="discount-bar" style="width: 67%;"></div>
+          </div>
+          <div class="product-discount">Partial Aid: $165/m</div>
+          <div class="product-price-after-discount">$80/m</div>
+        </div>
+        <button class="buy-now-button" onclick="requestFunding()">Request Funding</button>
+      </div>
+
+      <div class="product-container">
+        <div class="product-info">
+          <div class="product-name">AutoDesk</div>
+          <div class="product-price">$200/m</div>
+          <div class="discount-graphic">
+            <div class="discount-bar" style="width: 50%;"></div>
+          </div>
+          <div class="product-discount">Partial Aid: $100/m</div>
+          <div class="product-price-after-discount">$100/m</div>
+        </div>
+        <button class="buy-now-button" onclick="requestFunding()">Request Funding</button>
+      </div>
+        
+        <div class="product-container">
+        <div class="product-info">
+          <div class="product-name">ArCAD</div>
+          <div class="product-price">$500/y</div>
+          <div class="discount-graphic">
+            <div class="discount-bar" style="width: 60%;"></div>
+          </div>
+          <div class="product-discount">Partial Aid: $300/y</div>
+          <div class="product-price-after-discount">$200/y</div>
+        </div>
+        <button class="buy-now-button" onclick="requestFunding()">Request Funding</button>
+      </div>
+        
+        
+        
+        <div class="product-container">
+        <div class="product-info">
+          <div class="product-name">ETAP</div>
+          <div class="product-price">$99/m</div>
+          <div class="discount-graphic">
+            <div class="discount-bar" style="width: 90.25%;"></div>
+          </div>
+          <div class="product-discount">Partial Aid: $90/m</div>
+          <div class="product-price-after-discount">$9/m</div>
+        </div>
+        <button class="buy-now-button" onclick="requestFunding()">Request Funding</button>
+      </div>
+        
+        
+        
+        <div class="product-container">
+        <div class="product-info">
+          <div class="product-name">Solidwroks</div>
+          <div class="product-price">$99/m</div>
+          <div class="discount-graphic">
+            <div class="discount-bar" style="width: 70%;"></div>
+          </div>
+          <div class="product-discount">Partial Aid: $70/m</div>
+          <div class="product-price-after-discount">$30/m</div>
+        </div>
+        <button class="buy-now-button" onclick="requestFunding()">Request Funding</button>
+      </div>
+        
+        
+        
+        <div class="product-container">
+        <div class="product-info">
+          <div class="product-name">MatLab</div>
+          <div class="product-price">$99/m</div>
+          <div class="discount-graphic">
+            <div class="discount-bar" style="width: 71%;"></div>
+          </div>
+          <div class="product-discount">Partial Aid: $70/m</div>
+          <div class="product-price-after-discount">$29/m</div>
+        </div>
+        <button class="buy-now-button" onclick="requestFunding()">Request Funding</button>
+      </div>
+
+
+
+
+      <div class="product-container">
+        <div class="product-info">
+          <div class="product-name">Oracle</div>
+          <div class="product-price">$19/m</div>
+          <div class="discount-graphic">
+            <div class="discount-bar" style="width: 0%;"></div>
+          </div>
+          <div class="product-discount">Partial Aid: $0/m</div>
+          <div class="product-price-after-discount">$19/m</div>
+        </div>
+        <button class="buy-now-button" onclick="requestFunding()">Request Funding</button>
+      </div>
+
+
+
+
+      <div class="product-container">
+        <div class="product-info">
+          <div class="product-name">Spice</div>
+          <div class="product-price">$26/m</div>
+          <div class="discount-graphic">
+            <div class="discount-bar" style="width: 0%;"></div>
+          </div>
+          <div class="product-discount">Partial Aid: $0/m</div>
+          <div class="product-price-after-discount">$26/m</div>
+        </div>
+        <button class="buy-now-button" onclick="requestFunding()">Request Funding</button>
+      </div>
+
+
+
+
+
+      <div class="product-container">
+        <div class="product-info">
+          <div class="product-name">PCBLab</div>
+          <div class="product-price">$10/m or, $99/y or, $799 Lifetime</div>
+          <div class="discount-graphic">
+            <div class="discount-bar" style="width: 12.39%; font-size: 8px; color: white; padding-left: 10px;"></div>
+          </div>
+          <div class="product-discount">Partial Aid: $0/m or, $0/y or, $99 Lifetime</div>
+          <div class="product-price-after-discount">$10/m or, $99/y or, $700 Lifetime</div>
+        </div>
+        <button class="buy-now-button" onclick="requestFunding()">Request Funding</button>
+      </div>
+        
+      <div class="product-container">
+        <div class="product-info">
+          <div class="product-name">Simulink</div>
+          <div class="product-price">$25/m or, $250/y or, $1200 Lifetime</div>
+          <div class="discount-graphic">
+            <div class="discount-bar" style="width: 0%; font-size: 8px; color: white; padding-left: 10px;"></div>
+          </div>
+          <div class="product-discount">Partial Aid: $0/m or, $0/y or, $0 Lifetime</div>
+          <div class="product-price-after-discount">$25/m or, $250/y or, $1200 Lifetime</div>
+        </div>
+        <button class="buy-now-button" onclick="requestFunding()">Request Funding</button>
+      </div>    
+        
+        
+        <div class="product-container">
+        <div class="product-info">
+          <div class="product-name">Rust</div>
+          <div class="product-price">$18/m</div>
+          <div class="discount-graphic">
+            <div class="discount-bar" style="width: 0%; font-size: 8px; color: white; padding-left: 10px;"></div>
+          </div>
+          <div class="product-discount">Partial Aid: $0/m</div>
+          <div class="product-price-after-discount">$18/m</div>
+        </div>
+        <button class="buy-now-button" onclick="requestFunding()">Request Funding</button>
+      </div>   
+    
+        
+        
+        
+        
+    </div>
+            
+            <!--
+
+    <div class="category-title" onclick="toggleCategory('electronics')">Electronics</div>
+    <div class="category-container" id="electronics">
+      <div class="product-container">
+        <div class="product-info">
+          <div class="product-name">Electronic 1</div>
+          <div class="product-price">$100</div>
+          <div class="discount-graphic">
+            <div class="discount-bar" style="width: 15%;"></div>
+          </div>
+          <div class="product-discount">Partial Aid: $15</div>
+          <div class="product-price-after-discount">$85</div>
+        </div>
+        <button class="buy-now-button">Buy Now</button>
+      </div>
+
+      <div class="product-container">
+        <div class="product-info">
+          <div class="product-name">Electronic 2</div>
+          <div class="product-price">$200</div>
+          <div class="discount-graphic">
+            <div class="discount-bar" style="width: 25%;"></div>
+          </div>
+          <div class="product-discount">Partial Aid: $50</div>
+          <div class="product-price-after-discount">$150</div>
+        </div>
+        <button class="buy-now-button">Buy Now</button>
+      </div>
+    </div>
+
+    <div class="category-title" onclick="toggleCategory('clothes')">Clothes</div>
+    <div class="category-container" id="clothes">
+      <div class="product-container">
+        <div class="product-info">
+          <div class="product-name">Cloth 1</div>
+          <div class="product-price">$50</div>
+          <div class="discount-graphic">
+            <div class="discount-bar" style="width: 30%;"></div>
+          </div>
+          <div class="product-discount">Partial Aid: $15</div>
+          <div class="product-price-after-discount">$35</div>
+        </div>
+        <button class="buy-now-button">Buy Now</button>
+      </div>
+
+      <div class="product-container">
+        <div class="product-info">
+          <div class="product-name">Cloth 2</div>
+          <div class="product-price">$80</div>
+          <div class="discount-graphic">
+            <div class="discount-bar" style="width: 10%;"></div>
+          </div>
+          <div class="product-discount">Partial Aid: $8</div>
+          <div class="product-price-after-discount">$72</div>
+        </div>
+        <button class="buy-now-button">Buy Now</button>
+      </div>
+    </div>
+
+-->
+  </div>
+
+
+  <script>
+    function toggleCategory(category) {
+      const categoryContainer = document.getElementById(category);
+      const categoryTitles = document.querySelectorAll('.category-title');
+      const allCategoryContainers = document.querySelectorAll('.category-container');
+
+      // Hide all category containers
+      allCategoryContainers.forEach(container => {
+        if (container !== categoryContainer) {
+          container.style.display = 'none';
+        }
+      });
+
+      // Toggle the display of the selected category container
+      categoryContainer.style.display = categoryContainer.style.display === 'none' ? 'block' : 'none';
+
+      // Update the style of category titles
+      categoryTitles.forEach(title => {
+        if (title === event.target) {
+          title.style.fontWeight = 'bold';
+          title.style.color = '#fff';
+        } else {
+          title.style.fontWeight = 'normal';
+          title.style.color = '#f2f2f2';
+        }
+      });
+    }
+  </script>
+    
+        
+    </div>
+    
+    
+    
+    
+    <!-- Products shelf END-->
+    
+    
+    <div id="reqstat" class="reqstatclass" onclick="redirectToPage('reqstat.html')">
+    
+        <div id="reqstatheading">
+        
+            <h2>Request Status</h2>
+        </div>
+        
+    </div>
+    
+    <script>
+    function createPid(url) {
+      window.location.href = url;
+    }
+  </script>
+    
+    <div style="margin: 20px; padding: 20px;">
+    
+        <button style="margin-left: 40%; margin-right: 40%; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px;background-color: forestgreen; color: white; border-style: none; box-shadow: 4px 4px 8px rgba(0,0,0,0.2);" onclick="createPid('paymentid.html')">Create Payment ID</button>
+        
+    </div>
+  <!-- Add more sections as needed -->
+  <!--  
+  <div id="general">
+    
+      <h3>Department of Electrical and Electronics Engineering </h3>
+      
+      <div id="semester">
+          
+          <h4>1st Semester</h4>
+          
+          <p>All info will be vailable soon</p>
+      
+      </div>
+      
+      <div id="seminfo">
+      
+          <h4>Semester Information</h4>
+          
+          <p>All info will be avalable soon</p>
+      </div>
+    
+    </div>
+
+  -->
+
+  <footer>
+    <p>&copy; 2023 NSU. All rights reserved.</p>
+  </footer>
+</body>
+</html>

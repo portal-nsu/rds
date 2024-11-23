@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prompt&display=swap" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="nsu2.png">
+
+  <title>NSU-Payment History</title>
+  <style>
+    /* Reset default styles */
+    body, h1, h2, ul, li {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Page layout */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #F9FAFC;
+    }
+
+    header {
+      background-color: #1A3C7F;
+      color: #FFF;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center; /* Align items horizontally */
+    }
+
+    header img {
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    nav {
+      background-color: #FFF;
+      padding: 10px 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    nav ul {
+      list-style-type: none;
+      text-align: center;
+    }
+
+    nav ul li {
+      display: inline;
+      margin-right: 10px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #1A3C7F;
+      padding: 5px 10px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      background-color: #E8EAF6;
+    }
+
+    section {
+      background-color: #FFF;
+      padding: 20px;
+      margin-left: 20px;
+      margin-right: 20px;
+      margin-bottom: 20px;
+      margin-top: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      cursor: pointer; /* Add cursor pointer to indicate interactivity */
+      overflow: hidden; /* Hide overflowing content */
+      transition: box-shadow 0.3s ease;
+    }
+
+    section.active {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    section h2 {
+      color: #1A3C7F;
+      margin-bottom: 10px;
+    }
+
+    .section-content {
+      margin: 20px;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+    }
+
+    .section-content.active {
+      max-height: 1000px; /* Adjust the max-height value as needed */
+      opacity: 1;
+      transition-delay: 0.2s; /* Add a delay to make the transition smoother */
+    }
+
+    footer {
+      background-color: #1A3C7F;
+      color: #FFF;
+      padding: 10px;
+      text-align: center;
+    }
+    
+    #userimage {
+      height: 200px;
+      width: 150px;
+    }
+    
+    p {
+    margin-bottom: 10px;
+  }
+  
+    li {
+      margin-bottom: 10px;
+    }
+   
+     
+      
+      #semester {
+          
+          padding: 10px;
+          margin: 10px;
+          background-color: white;
+          border-radius: 10px;
+          color: black;
+          
+      }
+      
+      #seminfo {
+          
+          padding: 10px;
+          margin: 10px;
+          background-color: white;
+          border-radius: 10px;
+          color: black;
+          
+      }
+      
+       #general {
+          padding: 20px;
+          margin: 20px;
+          background-color: #1A3C7F;
+          color: white;
+          border-radius: 10px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+          height: auto;
+      }
+      
+      #seminfo h4 {
+          padding-left: 20px;
+      }
+      
+      #semester h4 {
+          padding-left: 20px;
+      }
+      
+      #semester p {
+          padding-left: 30px;
+      }
+      
+      #seminfo p {
+          padding-left: 30px;
+      }
+      
+      .headfixclass {
+          background-color: aliceblue;
+          border-radius: 10px;
+          padding-bottom: 20px;
+          margin-bottom: 20px;
+          padding-top: 20px;
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+      
+      #headfix h2 {
+          text-align: center;
+          color: #371E87;
+          padding-bottom: 20px;
+      }
+      
+      #headfixsum {
+          color: black;
+          font-family: 'Prompt', sans-serif;
+          margin-left: 20px;
+          margin-right: 20px;
+          padding: 20px;
+          background-color: white;
+          text-align: center;
+          font-size: 15pt;
+      }
+      
+      #headfixbuttonpanel {
+          display: flex;
+          justify-content: center;
+          padding: 10px;
+          margin: 10px;
+      }
+      
+      .hfbpb {
+      background-color: #1A3C7F; /* Default background color */
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 20px;
+      margin: 4px 10px;
+      transition-duration: 0.4s;
+      cursor: pointer;
+          border-radius: 10px;
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+          font-family: 'Bebas Neue', sans-serif;
+          border-radius: 0;
+      }
+      
+      .hfbpb:hover {
+          background-color: white; /* #008CBA; /* Background color on hover */
+          border: 5px solid #1A3C7F;
+          color: #1A3C7F;
+          box-shadow: 0 4px 8px rgba(36, 88, 255, 0.66);
+          border-radius: 0;
+      }
+      
+      #logoutbutton {
+          background-color: red;
+          border: none;
+          color: white;
+          
+      }
+      
+      #logoutbutton:hover {
+          background-color: white;
+          border: 5px solid red;
+          color: red;
+          box-shadow: 0 4px 8px rgba(255, 0, 0, 0.66);
+      }
+      
+      
+      /* faculty start here */
+      
+      #maindiv {
+          padding: 20px;
+      }
+      
+      #maindivheading {
+          padding: 20px;
+      }
+      
+      #maindivheading h3 {
+          text-align: center;
+      }
+      
+      #secondheader {
+          background-color: #1A3C7F;
+          color: white;
+          text-align: center;
+          padding-top: 20px;
+          padding-bottom: 20px;
+          
+      }
+      
+      #maindivfirst {
+          padding: 20px;
+          
+      }
+      
+      .maindivfirstsectionclass {
+          font-family: 'Roboto', sans-serif;
+          font-weight: 600;
+          font-size: 20px;
+          text-align: center;
+          background-color: #1A3C7F;
+          color: white;
+          transition: transform .6s ease-out, background-color .6s ease-out, color .6s ease-out, box-shadow .6s ease-out, font-size .6s ease-out;
+      }
+      
+      .maindivfirstsectionclass:hover {
+          transform: scale(1.01);
+          background-color: white;
+          color: #1A3C7F;
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+          font-size: 22px;
+          transition: transform .6s ease-out, background-color .6s ease-out, color .6s ease-out, box-shadow .6s ease-out, font-size .6s ease-out;
+      }
+      
+      
+      #subdiv1 {
+          margin-left: 20px;
+          margin-right: 20px;
+          padding-left: 10px;
+          padding-right: 10px;
+          margin-top: 30px;
+          margin-bottom: 30px;
+          padding-top: 10px;
+          padding-bottom: 10px;
+      }
+      
+      #subdiv2 {
+        
+          background-color: #1A3C7F;
+          margin-left: 30px;
+          margin-right: 30px;
+          padding-left: 20px;
+          padding-right: 20px;
+          margin-top: 20px;
+          margin-bottom: 20px;
+          padding-top: 10px;
+          padding-bottom: 10px;
+          color: white;
+      }
+      
+      .venueclass {
+          color: #1A3C7F;
+      }
+      
+      #sliplist {
+          display: flex;
+          flex-direction: column;
+      }
+      
+      #sliplist {
+          border-spacing: 20px;
+          border-style: solid;
+          border-radius: 10px;
+          padding: 20px;
+      }
+      
+      #sliplist td {
+          padding: 10px;
+          text-align: center;
+      }
+      
+      
+      
+      
+      
+    
+      
+      
+      
+    
+  </style>
+  <script>
+    // JavaScript function to toggle section content visibility and focus
+    function toggleSection(sectionId) {
+      var section = document.getElementById(sectionId);
+      section.classList.toggle("active");
+    }
+      
+      
+    
+      
+      function maindivfirstsectionfirstLink() {
+            window.location.href = "softlist.html";
+        }
+      
+  </script>
+</head>
+<body>
+  <header>
+    <img src="nsu2.png" alt="Logo">
+    <h1>North South University</h1>
+  </header>
+    
+    
+    <div id="secondheader" class="secondheaderclass">
+    
+        <h2>Payment Slip Authorization Check</h2>
+        
+    </div>
+    
+
+  <!--
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Courses</a></li>
+      <li><a href="panel1.html">Panel 1</a></li> <!-- Link to "panel1.html" --
+    </ul>
+  </nav>
+  -->
+  <div id="headfix" class="headfixclass">
+      
+     
+      
+      
+      <div id="headfixbuttonpanel" class="headfixbuttonpanelclass">
+          
+          <a href="dashboard.html">
+          <button class="hfbpb">Dashboard</button>
+          </a>
+          
+          <a href="academics.html">
+          <button class="hfbpb">Academics</button>
+          </a>
+          
+          <a href="fac.html">
+              <button class="hfbpb">F A C</button>
+          </a>
+          
+          <a href="account.html">
+              <button class="hfbpb">Account</button>
+          </a>
+          
+          <a href="index.html">
+              <button class="hfbpb" id="logoutbutton">Logout</button>
+          </a>
+      
+      </div>
+    
+    </div>
+    
+    
+    
+    <div id="maindiv" class="maindivclass">
+        
+        <div id="maindivheading" class="maindivheadingclass">
+            
+            <h3>The Following Payment ID and Slip are generated and authorized by NSU officials</h3>
+            
+            <h4 style="text-align: center;">Scan the QR code printed on payslip to verify</h4>
+            
+            
+            
+            
+        
+        </div>
+        
+        <div id="subdiv" class="subdivclass">
+        
+        
+            <script>
+        
+            
+            
+            
+    function downloadPDFAA() {
+      // Specify the URL of the PDF file
+      var pdfURL = 'payslip/payslip-126601.pdf';
+      
+      // Create a temporary <a> element
+      var link = document.createElement('a');
+      link.href = pdfURL;
+      link.download = 'payslip-126601.pdf';
+      
+      // Append the <a> element to the document
+      document.body.appendChild(link);
+      
+      // Trigger the download
+      link.click();
+      
+      // Clean up
+      document.body.removeChild(link);
+    }
+            
+          
+            
+            
+            
+            
+            function downloadPDFAB() {
+      // Specify the URL of the PDF file
+      var pdfURL = 'payslip/payslip-126602.pdf';
+      
+      // Create a temporary <a> element
+      var link = document.createElement('a');
+      link.href = pdfURL;
+      link.download = 'payslip-126602.pdf';
+      
+      // Append the <a> element to the document
+      document.body.appendChild(link);
+      
+      // Trigger the download
+      link.click();
+      
+      // Clean up
+      document.body.removeChild(link);
+    }
+            
+            
+            
+            
+            
+            function downloadPDFAC() {
+      // Specify the URL of the PDF file
+      var pdfURL = 'payslip/payslip-126603.pdf';
+      
+      // Create a temporary <a> element
+      var link = document.createElement('a');
+      link.href = pdfURL;
+      link.download = 'payslip-126603.pdf';
+      
+      // Append the <a> element to the document
+      document.body.appendChild(link);
+      
+      // Trigger the download
+      link.click();
+      
+      // Clean up
+      document.body.removeChild(link);
+    }
+                
+                
+                
+                
+                
+                function downloadPDFAD() {
+      // Specify the URL of the PDF file
+      var pdfURL = 'payslip/payslip-126604.pdf';
+      
+      // Create a temporary <a> element
+      var link = document.createElement('a');
+      link.href = pdfURL;
+      link.download = 'payslip-126604.pdf';
+      
+      // Append the <a> element to the document
+      document.body.appendChild(link);
+      
+      // Trigger the download
+      link.click();
+      
+      // Clean up
+      document.body.removeChild(link);
+    }
+                
+                
+                
+                
+                
+                function downloadPDFAE() {
+      // Specify the URL of the PDF file
+      var pdfURL = 'payslip/payslip-126605.pdf';
+      
+      // Create a temporary <a> element
+      var link = document.createElement('a');
+      link.href = pdfURL;
+      link.download = 'payslip-126605.pdf';
+      
+      // Append the <a> element to the document
+      document.body.appendChild(link);
+      
+      // Trigger the download
+      link.click();
+      
+      // Clean up
+      document.body.removeChild(link);
+    }
+                
+                
+                
+                function downloadPDFAF() {
+      // Specify the URL of the PDF file
+      var pdfURL = 'payslip/payslip-126606.pdf';
+      
+      // Create a temporary <a> element
+      var link = document.createElement('a');
+      link.href = pdfURL;
+      link.download = 'payslip-126606.pdf';
+      
+      // Append the <a> element to the document
+      document.body.appendChild(link);
+      
+      // Trigger the download
+      link.click();
+      
+      // Clean up
+      document.body.removeChild(link);
+    }
+                
+                
+                
+                
+                function downloadPDFAG() {
+      // Specify the URL of the PDF file
+      var pdfURL = 'payslip/payslip-126607.pdf';
+      
+      // Create a temporary <a> element
+      var link = document.createElement('a');
+      link.href = pdfURL;
+      link.download = 'payslip-126607.pdf';
+      
+      // Append the <a> element to the document
+      document.body.appendChild(link);
+      
+      // Trigger the download
+      link.click();
+      
+      // Clean up
+      document.body.removeChild(link);
+    }
+                
+                
+                
+                
+                
+                
+                
+                
+                function downloadPDFAH() {
+      // Specify the URL of the PDF file
+      var pdfURL = 'payslip/payslip-126608.pdf';
+      
+      // Create a temporary <a> element
+      var link = document.createElement('a');
+      link.href = pdfURL;
+      link.download = 'payslip-126608.pdf';
+      
+      // Append the <a> element to the document
+      document.body.appendChild(link);
+      
+      // Trigger the download
+      link.click();
+      
+      // Clean up
+      document.body.removeChild(link);
+    }
+                
+                
+                
+                
+                
+                
+                
+                
+                
+      function downloadPDFAI() {
+      // Specify the URL of the PDF file
+      var pdfURL = 'payslip/payslip-126609.pdf';
+      
+      // Create a temporary <a> element
+      var link = document.createElement('a');
+      link.href = pdfURL;
+      link.download = 'payslip-126609.pdf';
+      
+      // Append the <a> element to the document
+      document.body.appendChild(link);
+      
+      // Trigger the download
+      link.click();
+      
+      // Clean up
+      document.body.removeChild(link);
+    }
+                
+                
+                
+                
+                
+                
+                
+                
+                
+      function downloadPDFAJ() {
+      // Specify the URL of the PDF file
+      var pdfURL = 'payslip/payslip-126610.pdf';
+      
+      // Create a temporary <a> element
+      var link = document.createElement('a');
+      link.href = pdfURL;
+      link.download = 'payslip-126610.pdf';
+      
+      // Append the <a> element to the document
+      document.body.appendChild(link);
+      
+      // Trigger the download
+      link.click();
+      
+      // Clean up
+      document.body.removeChild(link);
+    }
+                
+                
+                
+                
+                
+                
+                function downloadPDFAK() {
+      // Specify the URL of the PDF file
+      var pdfURL = 'payslip/payslip-126611.pdf';
+      
+      // Create a temporary <a> element
+      var link = document.createElement('a');
+      link.href = pdfURL;
+      link.download = 'payslip-126611.pdf';
+      
+      // Append the <a> element to the document
+      document.body.appendChild(link);
+      
+      // Trigger the download
+      link.click();
+      
+      // Clean up
+      document.body.removeChild(link);
+    }
+                
+                
+                
+                
+                function downloadPDFAL() {
+      // Specify the URL of the PDF file
+      var pdfURL = 'payslip/payslip-126612.pdf';
+      
+      // Create a temporary <a> element
+      var link = document.createElement('a');
+      link.href = pdfURL;
+      link.download = 'payslip-126612.pdf';
+      
+      // Append the <a> element to the document
+      document.body.appendChild(link);
+      
+      // Trigger the download
+      link.click();
+      
+      // Clean up
+      document.body.removeChild(link);
+    }
+                
+                
+                
+                
+                
+                function downloadPDFAM() {
+      // Specify the URL of the PDF file
+      var pdfURL = 'payslip/payslip-126613.pdf';
+      
+      // Create a temporary <a> element
+      var link = document.createElement('a');
+      link.href = pdfURL;
+      link.download = 'payslip-126613.pdf';
+      
+      // Append the <a> element to the document
+      document.body.appendChild(link);
+      
+      // Trigger the download
+      link.click();
+      
+      // Clean up
+      document.body.removeChild(link);
+    }
+                
+                
+                
+                
+                
+                
+                
+                function downloadPDFAN() {
+      // Specify the URL of the PDF file
+      var pdfURL = 'payslip/payslip-126614.pdf';
+      
+      // Create a temporary <a> element
+      var link = document.createElement('a');
+      link.href = pdfURL;
+      link.download = 'payslip-126614.pdf';
+      
+      // Append the <a> element to the document
+      document.body.appendChild(link);
+      
+      // Trigger the download
+      link.click();
+      
+      // Clean up
+      document.body.removeChild(link);
+    }
+            
+            
+            
+        </script>
+            
+            
+            
+            
+            
+            
+            
+        
+        
+        
+        
+        
+        
+        
+        <section id="slips">
+        
+            <h2>Download Payslips</h2>
+            <div id="sliplist">
+            
+                <table>
+                
+                    <thead>
+                    
+                        <th>Serial</th>
+                        <th>Transaction ID</th>
+                        <th>Date</th>
+                        <th>PDF Download</th>
+                    </thead>
+                    <tr>
+                    <td>01</td>
+                    <td>126601</td>
+                    <td>8 June 2023</td>
+                    <td style="background-color: green; text-align: center; color: white; font-family: 'Bebas Neue', sans-serif; font-stretch: expanded;" onclick="downloadPDFAA()">Download</td>
+                    </tr>
+                    <tr>
+                    <td>02</td>
+                    <td>126602</td>
+                    <td>18 June 2023</td>
+                    <td style="background-color: green; text-align: center; color: white; font-family: 'Bebas Neue', sans-serif; font-stretch: expanded;" onclick="downloadPDFAB()">Download</td>
+                    </tr>
+                    <tr>
+                    <td>03</td>
+                    <td>126603</td>
+                    <td>18 June 2023</td>
+                    <td style="background-color: green; text-align: center; color: white; font-family: 'Bebas Neue', sans-serif; font-stretch: expanded;" onclick="downloadPDFAC()">Download</td>
+                    </tr>
+                    <tr>
+                    <td>04</td>
+                    <td>126604</td>
+                    <td>29 August 2023</td>
+                    <td style="background-color: green; text-align: center; color: white; font-family: 'Bebas Neue', sans-serif; font-stretch: expanded;" onclick="downloadPDFAD()">Download</td>
+                    </tr>
+                    <tr>
+                    <td>05</td>
+                    <td>126605</td>
+                    <td>31 August 2023</td>
+                    <td style="background-color: green; text-align: center; color: white; font-family: 'Bebas Neue', sans-serif; font-stretch: expanded;" onclick="downloadPDFAE()">Download</td>
+                    </tr>
+                    <tr>
+                    <td>06</td>
+                    <td>126606</td>
+                    <td>29 September 2023</td>
+                    <td style="background-color: green; text-align: center; color: white; font-family: 'Bebas Neue', sans-serif; font-stretch: expanded;" onclick="downloadPDFAF()">Download</td>
+                    </tr>
+                    <tr>
+                    <td>07</td>
+                    <td>126607</td>
+                    <td>5 October 2023</td>
+                    <td style="background-color: green; text-align: center; color: white; font-family: 'Bebas Neue', sans-serif; font-stretch: expanded;" onclick="downloadPDFAG()">Download</td>
+                    </tr>
+                    <tr>
+                    <td>08</td>
+                    <td>126608</td>
+                    <td>12 November 2023</td>
+                    <td style="background-color: green; text-align: center; color: white; font-family: 'Bebas Neue', sans-serif; font-stretch: expanded;" onclick="downloadPDFAH()">Download</td>
+                    </tr>
+                    <tr>
+                    <td>09</td>
+                    <td>126609</td>
+                    <td>27 December 2023</td>
+                    <td style="background-color: green; text-align: center; color: white; font-family: 'Bebas Neue', sans-serif; font-stretch: expanded;" onclick="downloadPDFAI()">Download</td>
+                    </tr>
+                    <tr>
+                    <td>10</td>
+                    <td>126610</td>
+                    <td>06 February 2024</td>
+                    <td style="background-color: green; text-align: center; color: white; font-family: 'Bebas Neue', sans-serif; font-stretch: expanded;" onclick="downloadPDFAJ()">Download</td>
+                    </tr>
+                    <tr>
+                    <td>11</td>
+                    <td>126611</td>
+                    <td>31 March 2024</td>
+                    <td style="background-color: green; text-align: center; color: white; font-family: 'Bebas Neue', sans-serif; font-stretch: expanded;" onclick="downloadPDFAK()">Download</td>
+                    </tr>
+                    <tr>
+                    <td>12</td>
+                    <td>126612</td>
+                    <td>6 June 2024</td>
+                    <td style="background-color: green; text-align: center; color: white; font-family: 'Bebas Neue', sans-serif; font-stretch: expanded;" onclick="downloadPDFAL()">Download</td>
+                    </tr>
+                    <tr>
+                    <td>13</td>
+                    <td>126613</td>
+                    <td>11 July 2024</td>
+                    <td style="background-color: green; text-align: center; color: white; font-family: 'Bebas Neue', sans-serif; font-stretch: expanded;" onclick="downloadPDFAM()">Download</td>
+                    </tr>
+                    <tr>
+                    <td>14</td>
+                    <td>126614</td>
+                    <td>11 September 2024</td>
+                    <td style="background-color: green; text-align: center; color: white; font-family: 'Bebas Neue', sans-serif; font-stretch: expanded;" onclick="downloadPDFAN()">Download</td>
+                    </tr>
+                    
+                    
+                </table>
+            </div>
+        </section>
+            
+        </div>
+        
+        
+    </div>
+        
+        
+  <!-- Add more sections as needed -->
+    
+  
+
+  <footer>
+    <p>&copy; 2023 NSU. All rights reserved.</p>
+  </footer>
+</body>
+</html>

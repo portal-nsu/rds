@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NSU Login</title>
+  <link rel="icon" href="nsu2.png">
+  <style>
+      /* styles.css */
+
+header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      background-color: #1A3C7F;
+    }
+
+    img {
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    h2 {
+      font-size: 24px;
+      color: white;
+    }
+
+body {
+  font-family: Arial, sans-serif;
+  background-image: url('bgi.webp');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  background-color: rgba(255, 255, 255, 0.8);
+  
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input[type="text"],
+input[type="password"] {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  border-color: #4CAF50;
+}
+      
+      #mainbody {
+        padding-bottom: 50px;
+      }
+
+      </style>
+  
+</head>
+<body>
+   
+  <header>
+    <img src="nsu2.png" alt="Logo">
+    <h2>NORTH SOUTH UNIVERSITY</h2>
+  </header>
+  
+    
+    <div id="mainbody">
+    
+
+  <div class="container">
+    <h1>Student Login</h1>
+    <form id="login-form">
+      <input type="text" placeholder="Student ID" name="username" required>
+      <input type="password" placeholder="Password" name="password" required>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+    
+    
+    </div>
+    
+    
+  <script>
+    document.getElementById('login-form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission
+
+      // Get the values entered by the user
+      var username = document.getElementsByName('username')[0].value;
+      var password = document.getElementsByName('password')[0].value;
+
+      // Perform authentication or validation
+      if (username === '1266' && password === '139682') {
+        alert('Login successful!');
+        // Redirect to another page
+        window.location.href = 'dashboard.html'; // Replace 'dashboard.html' with the desired URL
+      } else {
+        alert('Invalid username or password. Please try again.');
+      }
+    });
+  </script>
+</body>
+</html>

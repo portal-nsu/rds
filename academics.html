@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prompt&display=swap" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="nsu2.png">
+
+  <title>NSU-Academic Profile</title>
+  <style>
+    /* Reset default styles */
+    body, h1, h2, ul, li {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Page layout */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #F9FAFC;
+    }
+
+    header {
+      background-color: #1A3C7F;
+      color: #FFF;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center; /* Align items horizontally */
+    }
+
+    header img {
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    nav {
+      background-color: #FFF;
+      padding: 10px 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    nav ul {
+      list-style-type: none;
+      text-align: center;
+    }
+
+    nav ul li {
+      display: inline;
+      margin-right: 10px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #1A3C7F;
+      padding: 5px 10px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      background-color: #E8EAF6;
+    }
+
+    section {
+      background-color: #FFF;
+      padding: 20px;
+      margin-left: 20px;
+      margin-right: 20px;
+      margin-bottom: 20px;
+      margin-top: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      cursor: pointer; /* Add cursor pointer to indicate interactivity */
+      overflow: hidden; /* Hide overflowing content */
+      transition: box-shadow 0.3s ease;
+    }
+
+    section.active {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    section h2 {
+      color: #1A3C7F;
+      margin-bottom: 10px;
+    }
+
+    .section-content {
+      margin: 20px;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+    }
+
+    .section-content.active {
+      max-height: 1000px; /* Adjust the max-height value as needed */
+      opacity: 1;
+      transition-delay: 0.2s; /* Add a delay to make the transition smoother */
+    }
+
+    footer {
+      background-color: #1A3C7F;
+      color: #FFF;
+      padding: 10px;
+      text-align: center;
+    }
+    
+    #userimage {
+      height: 200px;
+      width: 150px;
+    }
+    
+    p {
+    margin-bottom: 10px;
+  }
+  
+    li {
+      margin-bottom: 10px;
+    }
+   
+     
+      
+      #semester {
+          
+          padding: 10px;
+          margin: 10px;
+          background-color: white;
+          border-radius: 10px;
+          color: black;
+          
+      }
+      
+      #seminfo {
+          
+          padding: 10px;
+          margin: 10px;
+          background-color: white;
+          border-radius: 10px;
+          color: black;
+          
+      }
+      
+       #general {
+          padding: 20px;
+          margin: 20px;
+          background-color: #1A3C7F;
+          color: white;
+          border-radius: 10px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+          height: auto;
+      }
+      
+      #seminfo h4 {
+          padding-left: 20px;
+      }
+      
+      #semester h4 {
+          padding-left: 20px;
+      }
+      
+      #semester p {
+          padding-left: 30px;
+      }
+      
+      #seminfo p {
+          padding-left: 30px;
+      }
+      
+      .headfixclass {
+          background-color: aliceblue;
+          border-radius: 10px;
+          padding-bottom: 20px;
+          margin-bottom: 20px;
+          padding-top: 20px;
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+      
+      #headfix h2 {
+          text-align: center;
+          color: #371E87;
+          padding-bottom: 20px;
+      }
+      
+      #headfixsum {
+          color: black;
+          font-family: 'Prompt', sans-serif;
+          margin-left: 20px;
+          margin-right: 20px;
+          padding: 20px;
+          background-color: white;
+          text-align: center;
+          font-size: 15pt;
+      }
+      
+      #headfixbuttonpanel {
+          display: flex;
+          justify-content: center;
+          padding: 10px;
+          margin: 10px;
+      }
+      
+      .hfbpb {
+      background-color: #1A3C7F; /* Default background color */
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 20px;
+      margin: 4px 10px;
+      transition-duration: 0.4s;
+      cursor: pointer;
+          border-radius: 10px;
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+          font-family: 'Bebas Neue', sans-serif;
+          border-radius: 0;
+      }
+      
+      .hfbpb:hover {
+          background-color: white; /* #008CBA; /* Background color on hover */
+          border: 5px solid #1A3C7F;
+          color: #1A3C7F;
+          box-shadow: 0 4px 8px rgba(36, 88, 255, 0.66);
+          border-radius: 0;
+      }
+      
+      #logoutbutton {
+          background-color: red;
+          border: none;
+          color: white;
+          
+      }
+      
+      #logoutbutton:hover {
+          background-color: white;
+          border: 5px solid red;
+          color: red;
+          box-shadow: 0 4px 8px rgba(255, 0, 0, 0.66);
+      }
+      
+      
+      /* faculty start here */
+      
+      #maindiv {
+          padding: 20px;
+      }
+      
+      #maindivheading {
+          padding: 20px;
+      }
+      
+      #maindivheading h3 {
+          text-align: center;
+      }
+      
+      #secondheader {
+          background-color: #1A3C7F;
+          color: white;
+          text-align: center;
+          padding-top: 20px;
+          padding-bottom: 20px;
+          
+      }
+      
+      #maindivfirst {
+          padding: 20px;
+          
+      }
+      
+      .maindivfirstsectionclass {
+          font-family: 'Roboto', sans-serif;
+          font-weight: 600;
+          font-size: 20px;
+          text-align: center;
+          background-color: #1A3C7F;
+          color: white;
+          transition: transform .6s ease-out, background-color .6s ease-out, color .6s ease-out, box-shadow .6s ease-out, font-size .6s ease-out;
+      }
+      
+      .maindivfirstsectionclass:hover {
+          transform: scale(1.01);
+          background-color: white;
+          color: #1A3C7F;
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+          font-size: 22px;
+          transition: transform .6s ease-out, background-color .6s ease-out, color .6s ease-out, box-shadow .6s ease-out, font-size .6s ease-out;
+      }
+      
+      
+      #subdiv1 {
+          margin-left: 20px;
+          margin-right: 20px;
+          padding-left: 10px;
+          padding-right: 10px;
+          margin-top: 30px;
+          margin-bottom: 30px;
+          padding-top: 10px;
+          padding-bottom: 10px;
+      }
+      
+      #subdiv2 {
+        
+          background-color: #1A3C7F;
+          margin-left: 30px;
+          margin-right: 30px;
+          padding-left: 20px;
+          padding-right: 20px;
+          margin-top: 20px;
+          margin-bottom: 20px;
+          padding-top: 10px;
+          padding-bottom: 10px;
+          color: white;
+      }
+      
+      .venueclass {
+          color: #1A3C7F;
+          border-radius: 0px;
+      }
+      
+    
+  </style>
+  <script>
+    // JavaScript function to toggle section content visibility and focus
+    function toggleSection(sectionId) {
+      var section = document.getElementById(sectionId);
+      section.classList.toggle("active");
+    }
+      
+      
+    
+      
+      function maindivfirstsectionfirstLink() {
+            window.location.href = "softlist.html";
+        }
+      
+  </script>
+</head>
+<body>
+  <header>
+    <img src="nsu2.png" alt="Logo">
+    <h1>North South University</h1>
+  </header>
+    
+    
+    <div id="secondheader" class="secondheaderclass">
+    
+        <h2>Academic Profile</h2>
+        
+    </div>
+    
+
+  <!--
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Courses</a></li>
+      <li><a href="panel1.html">Panel 1</a></li> <!-- Link to "panel1.html" --
+    </ul>
+  </nav>
+  -->
+  <div id="headfix" class="headfixclass">
+      
+      <h2>Department of Electrical and Electronics Engineering</h2>
+      
+      <!--
+      <div id="headfixsum" class="headfixsumclass">
+          
+          <p>Welcome to the school of physical engineering of NSU.<br>
+          Department of Electrical and Electronics Engineering of NSU is ranked #301-400 wordwide<br>
+          We are glad we have such critical thinker like you onboard.</p>
+          
+      
+      </div>
+      -->
+      
+      <div id="headfixbuttonpanel" class="headfixbuttonpanelclass">
+          
+          <a href="dashboard.html">
+          <button class="hfbpb">Dashboard</button>
+          </a>
+          
+          <a href="academics.html">
+          <button class="hfbpb">Academics</button>
+          </a>
+          
+          <a href="fac.html">
+              <button class="hfbpb">F A C</button>
+          </a>
+          
+          <a href="account.html">
+              <button class="hfbpb">Account</button>
+          </a>
+          
+          <a href="index.html">
+              <button class="hfbpb" id="logoutbutton">Logout</button>
+          </a>
+      
+      </div>
+    
+    </div>
+    
+    
+    
+    <div id="maindiv" class="maindivclass">
+        
+        <div id="maindivheading" class="maindivheadingclass">
+            
+            <h3>Department of Electrical and Electronic Engineering</h3>
+            
+            <div id="subdiv1" class="subdivclass">
+            
+            <h4>Student Record</h4>
+            <ul>
+            
+                <li>Name: MD ABDULLAH AL SEFAT</li>
+                <li>DOB: 21 JUNE 2003</li>
+                <li>SSC: 2020 with GPA 4.72</li>
+                <li>HSC: 2022 with GPA 5.00</li>
+                <li>Session: Summer 2023</li>
+                
+                <h3>Data as of Spring 2024</h3>
+                
+                <li>Semester Passed: 2</li>
+                <li>Current Semester: 3 (Summer 2024)</li>
+                <li>Total Course Passed: 11</li>
+                <li>None-credit Course Passed: 3</li>
+                <li>Total Credit Passed: 31.5</li>
+                <li>Total Credit Count: 24</li>
+                <li>Total None-credit Passed: 7.5</li>
+                <li style="color: forestgreen">CGPA: 3.60</li>
+                <li style="color: forestgreen">Current SGPA: 3.80</li>
+                <li style="color: forestgreen">Status: Excellent</li>
+                <li>CGPA Department Ranking: 176 (out of 8255)</li>
+                <li>Highest of Department: 4.00 (6)</li>
+                <li>Lowest of Department: 1.35 (16)</li>
+                <li>Mode of Department: 2.65 (4899)</li>
+                <li>Top 10% CGPA Range: 3.30 >=</li>
+                <li>Top 15% CGPA Range: 3.00 >=</li>
+                <li>Top 20% CGPA Range: 2.90 >=</li>
+                <li>Top 30% CGPA Range: 2.75 >=</li>
+                <li>Estimated Graduation Time: 5.5 Years</li>
+                <li>Minimum Graduation Time: 5 years</li>
+                
+            </ul>
+            
+            <h4>Current Semester Details</h4>
+            <ul>
+            
+                <li>Current Semester: Summer 2024</li>
+                <li>Course Enrolled: ENG111, CSE115, CSE115L, MAT120</li>
+                <li>Course Selected: ENG111, CSE115, CSE115L, MAT120</li>
+                <li>Course Dropped: N/A</li>
+                <li>Semester CGPA: TBA</li>
+                <li>Estimated CGPA based on current performance: TBA</li>
+                <li>Faculty Evaluation Status: <b style="color: forestgreen;">TBA</b> </li>
+                <li>Advising: Complete</li>
+                <li>Payment of Summer 2024: Completed</li>
+                <li>Previous Payment Clearance: Completed</li>
+            </ul>
+            
+            <h4>Previous Semester Summury</h4>
+            <ul>
+            
+                <li>Semester: Spring 2024</li>
+                <li>CGPA: 3.60</li>
+                <li>SGPA: 3.80</li>
+                <li>Course Completed: 4</li>
+                <li>Course Dropped: 0</li>
+                <li>Credit Passed: 12</li>
+            </ul>
+                <h4>Course GPA Record</h4>
+            <ul>
+            
+                <h3>Summer 2023</h3>
+                <p>TBA</p>
+                <h3>Intersession 2023</h3>
+                <p>TBA</p>
+                <h3>Spring 2024</h3>
+                <p>TBA</p>
+                <h3>Summer 2024</h3>
+                <p>TBA</p>
+                <h3>Intersession 2024</h3>
+                <p>TBA</p>
+            </ul>
+                
+            </div>
+            
+            <div id="subdiv2" class="subdivclass">
+            
+                <h3>Venues (Outdated)</h3>
+                
+                <section id="venue1" class="venueclass">
+                    <h3>Theory Classses</h3>
+                    <p><b>PHI104:</b> North Academic Building, NSU <br><b>General Schedule:</b> Any required day</p><br>
+                    <p><b>ENG103:</b> North Academic Building, NSU <br><b>General Schedule:</b> Any required day</p><br>
+                    <p><b>MAT116:</b> South Academic Building, NSU <br><b>General Schedule:</b> Any required day</p><br>
+                    <p><b>EEE154:</b> South Academic Building, NSU <br><b>General Schedule:</b> Any required day</p><br>
+                </section>
+                <section id="venue2" class="venueclass">
+                    <h3>Lab Classses</h3>
+                    <p><b>EEE Evaluation Lab:</b> Audit Lab, Bangladesh Korea Technical Training Centre <br><b>General Schedule:</b> Any required day</p>
+                </section>
+            </div>
+            
+        
+        </div>
+        
+        <div id="maindivfirst" class="maindivfirstclass">
+        
+            <section id="maindivfirstsectionfirst" class="maindivfirstsectionclass" onclick="maindivfirstsectionfirstLink()">
+               <p>Required Software list</p>
+            </section>
+        </div>
+    
+    </div>
+  <!-- Add more sections as needed -->
+    
+  
+    
+
+  <footer>
+    <p>&copy; 2023 NSU. All rights reserved.</p>
+  </footer>
+</body>
+</html>
