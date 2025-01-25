@@ -629,18 +629,7 @@ select:focus {
                         <label for="product">Transaction ID:</label>
     <select id="product" onchange="showPrice()" required>
         <option value=""></option>
-        <option value="A">126601</option>
-        <option value="B">126602</option>
-        <option value="C">126606</option>
-        <option value="D">126607</option>
-        <option value="E">126609</option>
-        <option value="F">126610</option>
-        <option value="G">126611</option>
-        <option value="H">126612</option>
-        <option value="I">126613</option>
-        <option value="J">126614</option>
-        <option value="K">126615</option>
-        <option value="L">126616</option>
+        <option value="A">126617</option>
     </select>
                         
                         <h3 style="padding-top: 10px;">Payment Status:</h3>
@@ -660,40 +649,7 @@ select:focus {
             // Set the price based on the selected product
             switch (product) {
                 case "A":
-                    priceDisplay.innerText = "$129.00 USD PAID";
-                    break;
-                case "B":
-                    priceDisplay.innerText = "$257.00 USD PAID";
-                    break;
-                case "C":
-                    priceDisplay.innerText = "$444.00 USD PAID";
-                    break;
-                case "D":
-                    priceDisplay.innerText = "$129.00 USD PAID";
-                    break;
-                case "E":
-                    priceDisplay.innerText = "$483.00 USD PAID";
-                    break;
-                case "F":
-                    priceDisplay.innerText = "92,250.00 BDT PAID";
-                    break;
-                case "G":
-                    priceDisplay.innerText = "$444.00 USD PAID";
-                    break;
-                case "H":
-                    priceDisplay.innerText = "$477.00 USD PAID";
-                    break;
-                    case "I":
-                    priceDisplay.innerText = "94,450.00 BDT PAID";
-                    break;
-                    case "J":
-                    priceDisplay.innerText = "444.00 USD PAID";
-                    break;
-                    case "K":
-                    priceDisplay.innerText = "81,500.00 BDT PAID";
-                    break;
-                    case "L":
-                    priceDisplay.innerText = "218.00 USD PAID";
+                    priceDisplay.innerText = "$164.00 USD PENDING";
                     break;
                 default:
                     priceDisplay.innerText = "";
