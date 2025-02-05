@@ -45,33 +45,7 @@
       margin: 0;
     }
 
-    nav {
-      background-color: #FFF;
-      padding: 10px 0;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    nav ul {
-      list-style-type: none;
-      text-align: center;
-    }
-
-    nav ul li {
-      display: inline;
-      margin-right: 10px;
-    }
-
-    nav ul li a {
-      text-decoration: none;
-      color: #1A3C7F;
-      padding: 5px 10px;
-      border-radius: 4px;
-      transition: background-color 0.3s ease;
-    }
-
-    nav ul li a:hover {
-      background-color: #E8EAF6;
-    }
+   
 
     section {
       background-color: #FFF;
@@ -206,52 +180,46 @@
           font-size: 15pt;
       }
       
-      #headfixbuttonpanel {
-          display: flex;
-          justify-content: center;
-          padding: 10px;
-          margin: 10px;
-      }
       
-      .hfbpb {
-      background-color: #1A3C7F; /* Default background color */
-      border: none;
-      color: white;
-      padding: 15px 32px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 20px;
-      margin: 4px 10px;
-      transition-duration: 0.4s;
-      cursor: pointer;
-          border-radius: 10px;
-          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-          font-family: 'Bebas Neue', sans-serif;
-          border-radius: 0;
-      }
       
-      .hfbpb:hover {
-          background-color: white; /* #008CBA; /* Background color on hover */
-          border: 5px solid #1A3C7F;
-          color: #1A3C7F;
-          box-shadow: 0 4px 8px rgba(36, 88, 255, 0.66);
-          border-radius: 0;
-      }
+      .navbar {
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            background-color: #003366;
+            padding: 10px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .navbar img {
+            height: 50px;
+            margin-right: 20px;
+        }
+        .navbar a {
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .navbar button {
+            padding: 10px 20px;
+            background-color: #003366;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .navbar button:hover {
+            background-color: #005599;
+            transform: translateY(-2px);
+        }
+        .navbar #logoutbutton {
+            background-color: #ff3333;
+        }
+        .navbar #logoutbutton:hover {
+            background-color: #cc0000;
+        }
       
-      #logoutbutton {
-          background-color: red;
-          border: none;
-          color: white;
-          
-      }
       
-      #logoutbutton:hover {
-          background-color: white;
-          border: 5px solid red;
-          color: red;
-          box-shadow: 0 4px 8px rgba(255, 0, 0, 0.66);
-      }
       
       
       /* faculty start here */
@@ -493,42 +461,25 @@
     </ul>
   </nav>
   -->
-  <div id="headfix" class="headfixclass">
-      
-     
-      
-      <!--
-      <div id="headfixsum" class="headfixsumclass">
-          
-          <p>Welcome to the school of physical engineering of NSU.<br>
-          Department of Electrical and Electronics Engineering of NSU is ranked #301-400 wordwide<br>
-          We are glad we have such critical thinker like you onboard.</p>
-      
-      </div>
-      -->
-      
-      <div id="headfixbuttonpanel" class="headfixbuttonpanelclass">
-          
-          <a href="dashboard.html">
-          <button class="hfbpb">Dashboard</button>
-          </a>
-          
-          <a href="academics.html">
-          <button class="hfbpb">Academics</button>
-          </a>
-          
-          
-          
-          <a href="account.html">
-              <button class="hfbpb">Account</button>
-          </a>
-          
-          <a href="index.html">
-              <button class="hfbpb" id="logoutbutton">Logout</button>
-          </a>
-      
-      </div>
-    
+  
+    <div id="headfixbuttonpanel" class="navbar">
+        
+        <a href="dashboard.html">
+            <button class="hfbpb">Dashboard</button>
+        </a>
+        <a href="academics.html">
+            <button class="hfbpb">Academics</button>
+        </a>
+        <a href="account.html">
+            <button class="hfbpb">Account</button>
+        </a>
+        
+        <a href="fac.html">
+            <button class="hfbpb" style="background-color: skyblue">F A C</button>
+        </a>
+        <a href="index.html">
+            <button class="hfbpb" id="logoutbutton">Logout</button>
+        </a>
     </div>
     
     
