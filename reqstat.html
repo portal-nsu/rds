@@ -404,14 +404,14 @@
             
             <tr>
                 <td>4</td>
-                <td>2</td>
-                <td>ETAP (x1), Simulink (x1), Solidworks (x1), AutoDesk (x1)</td>
-                <td>01-02-2025 to 28-02-2025</td>
-                <td>Approved</td>
+                <td>4</td>
                 <td>N/A</td>
-                <td>$164.00 USD</td>
-                <td>126617</td>
-                <td style="color: forestgreen;"><b>PAID</b></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td style="color: forestgreen;"><b>N/A</b></td>
             </tr>
             <!--
             <tr>
@@ -714,6 +714,30 @@
     }
             
             
+            
+            
+            
+            
+            function downloadPDFAK() {
+      // Specify the URL of the PDF file
+      var pdfURL = 'payslip/payslip-126618.pdf';
+      
+      // Create a temporary <a> element
+      var link = document.createElement('a');
+      link.href = pdfURL;
+      link.download = 'payslip-126618.pdf';
+      
+      // Append the <a> element to the document
+      document.body.appendChild(link);
+      
+      // Trigger the download
+      link.click();
+      
+      // Clean up
+      document.body.removeChild(link);
+    }
+            
+            
         </script>
         
         
@@ -795,6 +819,12 @@
                     <td>126617</td>
                     <td>27 January 2025</td>
                     <td style="background-color: green; text-align: center; color: white; font-family: 'Bebas Neue', sans-serif; font-stretch: expanded;" onclick="downloadPDFAJ()">Download</td>
+                    </tr>
+                    <tr>
+                    <td>11</td>
+                    <td>126618</td>
+                    <td>27 January 2025</td>
+                    <td style="background-color: green; text-align: center; color: white; font-family: 'Bebas Neue', sans-serif; font-stretch: expanded;" onclick="downloadPDFAK()">Download</td>
                     </tr>
                 </table>
             </div>
