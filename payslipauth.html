@@ -826,7 +826,77 @@
       // Clean up
       document.body.removeChild(link);
     }
-            
+                
+                
+                
+                
+                
+                function downloadPDFAS() {
+      // Specify the URL of the PDF file
+      var pdfURL = 'payslip/payslip-126619.pdf';
+      
+      // Create a temporary <a> element
+      var link = document.createElement('a');
+      link.href = pdfURL;
+      link.download = 'payslip-126619.pdf';
+      
+      // Append the <a> element to the document
+      document.body.appendChild(link);
+      
+      // Trigger the download
+      link.click();
+      
+      // Clean up
+      document.body.removeChild(link);
+    }
+                
+                
+                
+                
+                
+                
+                function downloadPDFAT() {
+      // Specify the URL of the PDF file
+      var pdfURL = 'payslip/payslip-126620.pdf';
+      
+      // Create a temporary <a> element
+      var link = document.createElement('a');
+      link.href = pdfURL;
+      link.download = 'payslip-126620.pdf';
+      
+      // Append the <a> element to the document
+      document.body.appendChild(link);
+      
+      // Trigger the download
+      link.click();
+      
+      // Clean up
+      document.body.removeChild(link);
+    }
+                
+                
+                
+                
+                
+                function downloadPDFAU() {
+      // Specify the URL of the PDF file
+      var pdfURL = 'payslip/payslip-126621.pdf';
+      
+      // Create a temporary <a> element
+      var link = document.createElement('a');
+      link.href = pdfURL;
+      link.download = 'payslip-126621.pdf';
+      
+      // Append the <a> element to the document
+      document.body.appendChild(link);
+      
+      // Trigger the download
+      link.click();
+      
+      // Clean up
+      document.body.removeChild(link);
+    }
+                
             
             
         </script>
@@ -965,6 +1035,24 @@
                     <td>126618</td>
                     <td>26 February 2025</td>
                     <td style="background-color: green; text-align: center; color: white; font-family: 'Bebas Neue', sans-serif; font-stretch: expanded;" onclick="downloadPDFAR()">Download</td>
+                    </tr>
+                    <tr>
+                    <td>19</td>
+                    <td>126619</td>
+                    <td>25 March 2025</td>
+                    <td style="background-color: green; text-align: center; color: white; font-family: 'Bebas Neue', sans-serif; font-stretch: expanded;" onclick="downloadPDFAS()">Download</td>
+                    </tr>
+                    <tr>
+                    <td>20</td>
+                    <td>126620</td>
+                    <td>05 May 2025</td>
+                    <td style="background-color: green; text-align: center; color: white; font-family: 'Bebas Neue', sans-serif; font-stretch: expanded;" onclick="downloadPDFAT()">Download</td>
+                    </tr>
+                    <tr>
+                    <td>21</td>
+                    <td>126621</td>
+                    <td>06 May 2025</td>
+                    <td style="background-color: green; text-align: center; color: white; font-family: 'Bebas Neue', sans-serif; font-stretch: expanded;" onclick="downloadPDFAU()">Download</td>
                     </tr>
                     
                     

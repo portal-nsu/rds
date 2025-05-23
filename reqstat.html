@@ -394,8 +394,8 @@
                 <th>Software</th>
                 <th>Period</th>
                 <th>Request Status</th>
-                <th>Full Funding</th>
-                <th>Required</th>
+                <th>Funding Type</th>
+                <th>Deadline</th>
                 <th>Transaction ID</th>
                 <th>Payment Status</th>
             </tr>
@@ -403,15 +403,15 @@
         <tbody>
             
             <tr>
-                <td>4</td>
-                <td>4</td>
-                <td>N/A</td>
-                <td>N/A</td>
-                <td>N/A</td>
-                <td>N/A</td>
-                <td>N/A</td>
-                <td>N/A</td>
-                <td style="color: forestgreen;"><b>N/A</b></td>
+                <td>5</td>
+                <td>1</td>
+                <td>AutoCAD x1, Simulink x1, ETAP x1</td>
+                <td>June 2025</td>
+                <td>Approved</td>
+                <td>Partial</td>
+                <td>27 May 2025</td>
+                <td>126622</td>
+                <td style="color: red;"><b>PENDING</b></td>
             </tr>
             <!--
             <tr>
@@ -738,6 +738,51 @@
     }
             
             
+            
+            
+            
+            function downloadPDFAL() {
+      // Specify the URL of the PDF file
+      var pdfURL = 'payslip/payslip-126619.pdf';
+      
+      // Create a temporary <a> element
+      var link = document.createElement('a');
+      link.href = pdfURL;
+      link.download = 'payslip-126619.pdf';
+      
+      // Append the <a> element to the document
+      document.body.appendChild(link);
+      
+      // Trigger the download
+      link.click();
+      
+      // Clean up
+      document.body.removeChild(link);
+    }
+            
+            
+            
+            
+            function downloadPDFAM() {
+      // Specify the URL of the PDF file
+      var pdfURL = 'payslip/payslip-126620.pdf';
+      
+      // Create a temporary <a> element
+      var link = document.createElement('a');
+      link.href = pdfURL;
+      link.download = 'payslip-126620.pdf';
+      
+      // Append the <a> element to the document
+      document.body.appendChild(link);
+      
+      // Trigger the download
+      link.click();
+      
+      // Clean up
+      document.body.removeChild(link);
+    }
+            
+            
         </script>
         
         
@@ -825,6 +870,18 @@
                     <td>126618</td>
                     <td>27 January 2025</td>
                     <td style="background-color: green; text-align: center; color: white; font-family: 'Bebas Neue', sans-serif; font-stretch: expanded;" onclick="downloadPDFAK()">Download</td>
+                    </tr>
+                    <tr>
+                    <td>12</td>
+                    <td>126619</td>
+                    <td>25 March 2025</td>
+                    <td style="background-color: green; text-align: center; color: white; font-family: 'Bebas Neue', sans-serif; font-stretch: expanded;" onclick="downloadPDFAL()">Download</td>
+                    </tr>
+                    <tr>
+                    <td>13</td>
+                    <td>126620</td>
+                    <td>05 May 2025</td>
+                    <td style="background-color: green; text-align: center; color: white; font-family: 'Bebas Neue', sans-serif; font-stretch: expanded;" onclick="downloadPDFAM()">Download</td>
                     </tr>
                 </table>
             </div>
