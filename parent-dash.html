@@ -118,6 +118,10 @@
             .photo img {
                 width: 90px;
             }
+            time {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
         }
     </style>
 </head>
@@ -126,13 +130,12 @@
         <img src="nsu.png" alt="North South University Logo">
         <h1>NSU Parent Portal Dashboard</h1>       
     </header>
+    
+    <time id="current-time"></time>
 
     <div class="container">
         <h2>Student Information</h2>
         <div class="info">
-            <div class="photo">
-                <img src="sifat.jpg" alt="Student Photo">
-            </div>
             <div class="section">
                 <span class="label">Name:</span> <span id="student-name">MD ABDULLAH AL SEFAT</span>
             </div>
@@ -141,6 +144,14 @@
             </div>
             <div class="section">
                 <span class="label">Enrollment Year:</span> <span id="enrollment-year">Summer 2023</span>
+            </div>
+            <div class="section">
+                <span class="label">Emergency Contact:</span> <br>
+                <br>
+                <span id="enrollment-year">Cell: +880 1301753609</span> <br>
+                <span id="enrollment-year">Relation: Mother</span> <br>
+                <span id="enrollment-year">Blood Group: B+(ve)</span> <br>
+                <span id="enrollment-year">Conditional Awareness: severe allergic rhinitis</span>
             </div>
         </div>
 
@@ -165,26 +176,15 @@
             </div>
         </div>
 
-        <h2>Fee Breakdown</h2>
+        <h2>Account Summary</h2>
         <div class="info">
             <div class="section">
-                <span class="label">Tuition Fees:</span> <span id="tuition">BDT 50,000</span>
-                <br><span>Due Date: June 10, 2025</span>
+                <span class="label">FAC Fees:</span> <span id="tuition">$ 284.00 USD</span>
+                <br><span>Due Date: May 27, 2025</span>
             </div>
-            <div class="section">
-                <span class="label">Library Fees:</span> <span id="library">BDT 2,000</span>
-                <br><span>Due Date: July 5, 2025</span>
-            </div>
-            <div class="section">
-                <span class="label">Lab Fees:</span> <span id="lab">BDT 5,000</span>
-                <br><span>Due Date: July 15, 2025</span>
-            </div>
-            <div class="section">
-                <span class="label">Transport Fees:</span> <span id="transport">BDT 8,000</span>
-                <br><span>Due Date: August 1, 2025</span>
-            </div>
+            
             <div class="section-totaldues">
-                <span class="label">Total Due Amount:</span> <span id="total-dues">BDT 65,000</span>
+                <span class="label">Total Due Amount:</span> <span id="total-dues">$ 284.00 USD</span>
             </div>
         </div>
 
@@ -199,6 +199,20 @@
         document.getElementById("logout").addEventListener("click", function() {
             window.location.href = "https://portal-nsu.github.io/parent/";
         });
+        
+        
+        
+        function updateTime() {
+            const now = new Date();
+            const timeElement = document.getElementById('current-time');
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            timeElement.dateTime = now.toISOString();
+            timeElement.innerHTML = `Today is: ${now.toLocaleDateString(undefined, options)}, 
+                                     Time: ${now.toLocaleTimeString()}`;
+        }
+
+        setInterval(updateTime, 1000);
+        updateTime();
     </script>
 </body>
 </html>
