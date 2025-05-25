@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSU Parent Portal - Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f5faff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #0044cc;
+            color: white;
+            padding: 15px;
+        }
+
+        header img {
+            width: 100px;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 90%;
+            margin: 30px auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .info {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .section {
+            background: #e6f2ff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        .section-totaldues {
+            background: #ff6666 !important;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .section-sgpa, .section-cgpa {
+            background: #BFFFCE;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        .label {
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .photo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .photo img {
+            width: 120px;
+            border-radius: 50%;
+            border: 2px solid #0044cc;
+        }
+
+        footer {
+            background-color: #0044cc;
+            color: white;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        #logout {
+            display: block;
+            width: 150px;
+            margin: 20px auto;
+            padding: 12px;
+            background-color: red !important;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #logout:hover {
+            background-color: darkred !important;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                width: 95%;
+                padding: 15px;
+            }
+
+            .label {
+                font-size: 1rem;
+            }
+
+            .photo img {
+                width: 90px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="nsu.png" alt="North South University Logo">
+        <h1>NSU Parent Portal Dashboard</h1>       
+    </header>
+
+    <div class="container">
+        <h2>Student Information</h2>
+        <div class="info">
+            <div class="photo">
+                <img src="sifat.jpg" alt="Student Photo">
+            </div>
+            <div class="section">
+                <span class="label">Name:</span> <span id="student-name">MD ABDULLAH AL SEFAT</span>
+            </div>
+            <div class="section">
+                <span class="label">Birth Date:</span> <span id="birth-date">June 21, 2003</span>
+            </div>
+            <div class="section">
+                <span class="label">Enrollment Year:</span> <span id="enrollment-year">Summer 2023</span>
+            </div>
+        </div>
+
+        <h2>Academic Information</h2>
+        <div class="info">
+            <div class="section-sgpa">
+                <span class="label">Student SGPA:</span> <span id="sgpa">4.00 Spring 2025</span>
+            </div>
+            <div class="section-cgpa">
+                <span class="label">Student CGPA:</span> <span id="cgpa">3.82</span>
+            </div>
+            <div class="section">
+                <span class="label">NSU CGPA Grading:</span> <br> <br> <span id="credits">3.01-4.00 First Class (Excellent)</span> <br>
+                <br>
+                <span id="credits">2.5-3.00 Second Class (Good)</span> <br>
+                <br>
+                <span id="credits">2.00-2.49 Third Class (Average)</span> <br> <br>
+                <span id="credits">'>1.99 Poor</span>
+            </div>
+            <div class="section">
+                <span class="label">Completed Credits:</span> <span id="credits">40 (55 with uncountable credits)</span>
+            </div>
+        </div>
+
+        <h2>Fee Breakdown</h2>
+        <div class="info">
+            <div class="section">
+                <span class="label">Tuition Fees:</span> <span id="tuition">BDT 50,000</span>
+                <br><span>Due Date: June 10, 2025</span>
+            </div>
+            <div class="section">
+                <span class="label">Library Fees:</span> <span id="library">BDT 2,000</span>
+                <br><span>Due Date: July 5, 2025</span>
+            </div>
+            <div class="section">
+                <span class="label">Lab Fees:</span> <span id="lab">BDT 5,000</span>
+                <br><span>Due Date: July 15, 2025</span>
+            </div>
+            <div class="section">
+                <span class="label">Transport Fees:</span> <span id="transport">BDT 8,000</span>
+                <br><span>Due Date: August 1, 2025</span>
+            </div>
+            <div class="section-totaldues">
+                <span class="label">Total Due Amount:</span> <span id="total-dues">BDT 65,000</span>
+            </div>
+        </div>
+
+        <button id="logout">Logout</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 North South University Parent Portal</p>
+    </footer>
+
+    <script>
+        document.getElementById("logout").addEventListener("click", function() {
+            window.location.href = "https://portal-nsu.github.io/parent/";
+        });
+    </script>
+</body>
+</html>
