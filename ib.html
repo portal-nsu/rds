@@ -387,6 +387,17 @@ select:focus {
           background-color: white;
       }
       
+      #blink_me {
+          animation: blinker 1s linear infinite;
+          color: red;
+      }
+      
+      @keyframes blinker {
+          50% {
+              opacity: 0;
+          }
+      } 
+      
     
   </style>
   <script>
@@ -475,7 +486,7 @@ select:focus {
         <section id="credpanel" class="credpanelclass">
         
             <div id="inputshead">
-                <h2 style="color: red">Temporarily Closed</h2>
+                <h2 id="blink_me">! ! ! Temporarily Closed ! ! !</h2>
             <h2>Enter the required credentials below</h2>
                
             </div>

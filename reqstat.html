@@ -404,14 +404,14 @@
             
             <tr>
                 <td>5</td>
-                <td>1</td>
-                <td>AutoCAD x1, Simulink x1, ETAP x1</td>
-                <td>June 2025</td>
-                <td>Approved</td>
-                <td>Partial</td>
-                <td>27 May 2025</td>
-                <td>126622</td>
-                <td style="color: red;"><b>PENDING</b></td>
+                <td>2</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td style="color: red;"><b>N/A</b></td>
             </tr>
             <!--
             <tr>
@@ -783,6 +783,28 @@
     }
             
             
+            
+            
+            function downloadPDFAN() {
+      // Specify the URL of the PDF file
+      var pdfURL = 'payslip/payslip-126622.pdf';
+      
+      // Create a temporary <a> element
+      var link = document.createElement('a');
+      link.href = pdfURL;
+      link.download = 'payslip-126622.pdf';
+      
+      // Append the <a> element to the document
+      document.body.appendChild(link);
+      
+      // Trigger the download
+      link.click();
+      
+      // Clean up
+      document.body.removeChild(link);
+    }
+            
+            
         </script>
         
         
@@ -882,6 +904,12 @@
                     <td>126620</td>
                     <td>05 May 2025</td>
                     <td style="background-color: green; text-align: center; color: white; font-family: 'Bebas Neue', sans-serif; font-stretch: expanded;" onclick="downloadPDFAM()">Download</td>
+                    </tr>
+                    <tr>
+                    <td>14</td>
+                    <td>126622</td>
+                    <td>27 May 2025</td>
+                    <td style="background-color: green; text-align: center; color: white; font-family: 'Bebas Neue', sans-serif; font-stretch: expanded;" onclick="downloadPDFAN()">Download</td>
                     </tr>
                 </table>
             </div>
