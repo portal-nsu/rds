@@ -948,14 +948,40 @@
                 
                 
                 
-                function downloadPDFAX() {
+                
+                function downloadPDFAY() {
       // Specify the URL of the PDF file
-      var pdfURL = 'payslip/payslip-126624.pdf';
+      var pdfURL = 'payslip/payslip-126625.pdf';
       
       // Create a temporary <a> element
       var link = document.createElement('a');
       link.href = pdfURL;
-      link.download = 'payslip-126624.pdf';
+      link.download = 'payslip-126625.pdf';
+      
+      // Append the <a> element to the document
+      document.body.appendChild(link);
+      
+      // Trigger the download
+      link.click();
+      
+      // Clean up
+      document.body.removeChild(link);
+    }
+                
+                
+                
+                
+                
+                
+                
+                function downloadPDFAZ() {
+      // Specify the URL of the PDF file
+      var pdfURL = 'payslip/payslip-126626.pdf';
+      
+      // Create a temporary <a> element
+      var link = document.createElement('a');
+      link.href = pdfURL;
+      link.download = 'payslip-126626.pdf';
       
       // Append the <a> element to the document
       document.body.appendChild(link);
@@ -1142,6 +1168,19 @@
                     <td>28 July 2025</td>
                     <td style="background-color: green; text-align: center; color: white; font-family: 'Bebas Neue', sans-serif; font-stretch: expanded;" onclick="downloadPDFAX()">Download</td>
                     </tr>
+                    <tr>
+                    <td>25</td>
+                    <td>126625</td>
+                    <td>28 August 2025</td>
+                    <td style="background-color: green; text-align: center; color: white; font-family: 'Bebas Neue', sans-serif; font-stretch: expanded;" onclick="downloadPDFAY()">Download</td>
+                    </tr>
+                    <tr>
+                    <td>26</td>
+                    <td>126626</td>
+                    <td>09 September 2025</td>
+                    <td style="background-color: green; text-align: center; color: white; font-family: 'Bebas Neue', sans-serif; font-stretch: expanded;" onclick="downloadPDFAZ()">Download</td>
+                    </tr>
+                    
                     
                 </table>
             </div>
