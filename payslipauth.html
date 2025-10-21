@@ -993,6 +993,29 @@
       document.body.removeChild(link);
     }
                 
+                
+                
+                
+                
+                function downloadPDFBA() {
+      // Specify the URL of the PDF file
+      var pdfURL = 'payslip/payslip-126627.pdf';
+      
+      // Create a temporary <a> element
+      var link = document.createElement('a');
+      link.href = pdfURL;
+      link.download = 'payslip-126627.pdf';
+      
+      // Append the <a> element to the document
+      document.body.appendChild(link);
+      
+      // Trigger the download
+      link.click();
+      
+      // Clean up
+      document.body.removeChild(link);
+    }
+                
             
             
         </script>
@@ -1179,6 +1202,12 @@
                     <td>126626</td>
                     <td>09 September 2025</td>
                     <td style="background-color: green; text-align: center; color: white; font-family: 'Bebas Neue', sans-serif; font-stretch: expanded;" onclick="downloadPDFAZ()">Download</td>
+                    </tr>
+                    <tr>
+                    <td>27</td>
+                    <td>126627</td>
+                    <td>28 September 2025</td>
+                    <td style="background-color: green; text-align: center; color: white; font-family: 'Bebas Neue', sans-serif; font-stretch: expanded;" onclick="downloadPDFBA()">Download</td>
                     </tr>
                     
                     
