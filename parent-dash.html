@@ -25,8 +25,8 @@
         }
 
         .container {
-            max-width: 600px;
-            width: 90%;
+            max-width: 1200px;
+            width: 80%;
             margin: 30px auto;
             padding: 20px;
             background: #ffffff;
@@ -123,6 +123,54 @@
             margin-top: 10px;
         }
         }
+        
+        
+        
+        .scroll-container {
+      width: 100%;
+      overflow: hidden;
+      background: #111;
+      padding: 12px 0;
+    }
+
+    .scroll-text {
+      display: inline-block;
+      white-space: nowrap;
+      color: #fff;
+      font: 600 18px/1.4 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      animation: marquee 50s linear infinite;
+    }
+
+    /* Duplicate content for seamless loop */
+    .scroll-text span {
+    
+    }
+
+    @keyframes marquee {
+      0%   { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+        
+    #current-time {
+        background-color: white;
+        padding: 2px;
+        border: solid black 2px;
+        font-size: x-small;
+        color: maroon;
+    }
+        
+    #timebar {
+        margin: 10px auto;
+        max-width: 1200px;
+        width: 95%;
+        align-content: center;
+    }
+        
+        #scrollid {
+            max-width: 1200px;
+            width: 95%;
+            margin: auto;
+        }
     </style>
 </head>
 <body>
@@ -131,7 +179,22 @@
         <h1>NSU Parent Portal Dashboard</h1>       
     </header>
     
-    <time id="current-time"></time>
+    <div id="timebar"><time id="current-time"></time></div>
+    
+    
+    
+    <div id="scrollid">
+    
+        <div class="scroll-container">
+    <div class="scroll-text">
+      <span>📢 As per the decision of University Grants Comission of Bangladesh, The following courses will be mandatory for all Undergraduate students.</span>
+      <span>📢 Courses: CSE250(3 cred), CSE150(3 cred), CSE140(3 cred)</span>
+      <span>📢 Due to the unsetteling rise of Dengue Fever, Parents are advised to take care of their children and to do Dengue Screening Test if any symptom appears</span>
+    </div>
+    </div>
+    
+    </div>
+    
 
     <div class="container">
         <h2>Student Information</h2>
@@ -179,13 +242,13 @@
         <h2>Account Summary</h2>
         <div class="info">
             <div class="section">
-                <span class="label" style="color: orangered; background-color:aquamarine; padding-left: 30px; padding-right: 30px;">PID-126628</span><br>
-                <span class="label">Dues:</span> <span id="tuition">BDT 28,060.00/-</span>
-                <br><span>Deadline: 27 October 2025</span>
+                <span class="label" style="color: orangered; background-color:aquamarine; padding-left: 30px; padding-right: 30px;">PID- N/A</span><br>
+                <span class="label">Dues:</span> <span id="tuition">BDT 0.00/-</span>
+                <br><span>Deadline: N/A</span>
             </div>
             
             <div class="section-totaldues">
-                <span class="label">Total Due Amount:</span> <span id="total-dues">BDT 28,060.00/-</span>
+                <span class="label">Total Due Amount:</span> <span id="total-dues">BDT 0.00/-</span>
             </div>
         </div>
 
@@ -208,7 +271,7 @@
             const timeElement = document.getElementById('current-time');
             const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
             timeElement.dateTime = now.toISOString();
-            timeElement.innerHTML = `Today is: ${now.toLocaleDateString(undefined, options)}, 
+            timeElement.innerHTML = `Date: ${now.toLocaleDateString(undefined, options)}, 
                                      Time: ${now.toLocaleTimeString()}`;
         }
 
