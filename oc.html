@@ -521,7 +521,7 @@ select:focus {
                         <label for="product">Transaction ID:</label>
     <select id="product" onchange="showPrice()" required>
         <option value=""></option>
-        <option value="A">126628</option>
+        <option value="A">126629</option>
     </select>
                         
                         <h3 style="padding-top: 10px;">Payment Status:</h3>
@@ -541,7 +541,7 @@ select:focus {
             // Set the price based on the selected product
             switch (product) {
                 case "A":
-                    priceDisplay.innerText = "$230.00 USD PAID";
+                    priceDisplay.innerText = "$200.00 USD";
                     break;
                 default:
                     priceDisplay.innerText = "";
