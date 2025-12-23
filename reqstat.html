@@ -404,7 +404,7 @@
             
             <tr>
                 <td>7</td>
-                <td>1</td>
+                <td>2</td>
                 <td>-</td>
                 <td>-</td>
                 <td>-</td>
@@ -945,6 +945,28 @@
     }
             
             
+            
+            
+            function downloadPDFAU() {
+      // Specify the URL of the PDF file
+      var pdfURL = 'payslip/payslip-126631.pdf';
+      
+      // Create a temporary <a> element
+      var link = document.createElement('a');
+      link.href = pdfURL;
+      link.download = 'payslip-126631.pdf';
+      
+      // Append the <a> element to the document
+      document.body.appendChild(link);
+      
+      // Trigger the download
+      link.click();
+      
+      // Clean up
+      document.body.removeChild(link);
+    }
+            
+            
         </script>
         
         
@@ -1086,6 +1108,12 @@
                     <td>126629</td>
                     <td>26 November 2025</td>
                     <td style="background-color: green; text-align: center; color: white; font-family: 'Bebas Neue', sans-serif; font-stretch: expanded;" onclick="downloadPDFAT()">Download</td>
+                    </tr>
+                    <tr>
+                    <td>21</td>
+                    <td>126631</td>
+                    <td>22 December 2025</td>
+                    <td style="background-color: green; text-align: center; color: white; font-family: 'Bebas Neue', sans-serif; font-stretch: expanded;" onclick="downloadPDFAU()">Download</td>
                     </tr>
                 </table>
             </div>
