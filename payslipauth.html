@@ -1223,6 +1223,27 @@
       document.body.removeChild(link);
     }
                 
+                
+                
+                function downloadPDFBL() {
+      // Specify the URL of the PDF file
+      var pdfURL = 'payslip/payslip-126638.pdf';
+      
+      // Create a temporary <a> element
+      var link = document.createElement('a');
+      link.href = pdfURL;
+      link.download = 'payslip-126638.pdf';
+      
+      // Append the <a> element to the document
+      document.body.appendChild(link);
+      
+      // Trigger the download
+      link.click();
+      
+      // Clean up
+      document.body.removeChild(link);
+    }
+                
             
             
         </script>
@@ -1475,6 +1496,18 @@
                     <td>126637</td>
                     <td>21 May 2026</td>
                     <td style="background-color: green; text-align: center; color: white; font-family: 'Bebas Neue', sans-serif; font-stretch: expanded;" onclick="downloadPDFBK()">Download</td>
+                    </tr>
+                    <tr>
+                    <td>38</td>
+                    <td>126638</td>
+                    <td>26 July 2026</td>
+                    <td style="background-color: green; text-align: center; color: white; font-family: 'Bebas Neue', sans-serif; font-stretch: expanded;" onclick="downloadPDFBL()">Download</td>
+                    </tr>
+                    <tr>
+                    <td>39</td>
+                    <td>126639</td>
+                    <td>25 June 2026</td>
+                    <td style="background-color: green; text-align: center; color: white; font-family: 'Bebas Neue', sans-serif; font-stretch: expanded;" onclick="">Payment Waved</td>
                     </tr>
  
                 </table>
